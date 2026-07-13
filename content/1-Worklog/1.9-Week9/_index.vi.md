@@ -1,59 +1,57 @@
 ---
-title: "Worklog Tuần 9"
-date: 2024-01-01
-weight: 1
+title: "Nhật ký công việc Tuần 9"
+date: 2026-06-15
+weight: 9
 chapter: false
 pre: " <b> 1.9. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Mục tiêu Tuần 9
 
-### Mục tiêu tuần 9:
+- Tìm hiểu cách tạo IAM User với quyền truy cập giới hạn.
+- Kiểm tra các giới hạn quyền của IAM User.
+- Thực hành tạo IAM Policy và IAM Role.
+- Tạo IAM Group và thêm người dùng vào nhóm.
+- Tìm hiểu dịch vụ AWS Key Management Service.
+- Hiểu thêm về quản lý danh tính, phân quyền và bảo vệ dữ liệu trên AWS.
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Công việc trong Tuần 9
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| STT | Công việc | Bắt đầu | Kết thúc |
+|-----|-----------|---------|----------|
+| 1 | Tạo IAM User với quyền truy cập giới hạn | 15/06/2026 | 21/06/2026 |
+| 2 | Đăng nhập bằng IAM User và kiểm tra các quyền bị giới hạn | 15/06/2026 | 21/06/2026 |
+| 3 | Tạo IAM Policy theo yêu cầu của bài lab | 15/06/2026 | 21/06/2026 |
+| 4 | Tạo IAM Role và kiểm tra cách sử dụng role | 15/06/2026 | 21/06/2026 |
+| 5 | Tạo IAM Group và cấu hình quyền cho nhóm | 15/06/2026 | 21/06/2026 |
+| 6 | Tạo người dùng và thêm người dùng vào IAM Group | 15/06/2026 | 21/06/2026 |
+| 7 | Tìm hiểu và tạo khóa trong AWS Key Management Service | 15/06/2026 | 21/06/2026 |
+| 8 | Kiểm tra quyền truy cập và kết quả cấu hình bảo mật | 15/06/2026 | 21/06/2026 |
 
+### Kết quả đạt được trong Tuần 9
 
-### Kết quả đạt được tuần 9:
+- Tạo thành công IAM User với quyền truy cập giới hạn.
+- Kiểm tra được các hành động được phép và không được phép.
+- Biết cách tạo và cấu hình IAM Policy.
+- Hiểu thêm về cách IAM Role cung cấp quyền truy cập.
+- Tạo được IAM Group và thêm người dùng vào nhóm.
+- Tìm hiểu được chức năng cơ bản của AWS Key Management Service.
+- Hiểu rõ hơn về việc quản lý quyền truy cập và bảo vệ dữ liệu.
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Kiến thức và kỹ năng đạt được
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+- Biết cách tạo người dùng IAM có quyền giới hạn.
+- Hiểu cách kiểm tra và xác minh quyền của người dùng.
+- Biết cách sử dụng IAM Group để quản lý quyền cho nhiều người dùng.
+- Hiểu sự khác nhau giữa IAM User, Group, Policy và Role.
+- Có kiến thức cơ bản về quản lý khóa mã hóa bằng AWS KMS.
+- Hiểu rõ hơn nguyên tắc cấp quyền tối thiểu.
+- Cải thiện khả năng kiểm tra và xử lý lỗi phân quyền.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+### Cảm nhận Tuần 9
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+Trong tuần thứ chín, em tập trung thực hành các nội dung liên quan đến AWS IAM. Em đã tạo một IAM User với quyền giới hạn và thực hiện kiểm tra để xác định những hành động người dùng được phép hoặc bị từ chối.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+Em cũng thực hành tạo IAM Policy, IAM Role, IAM Group và thêm người dùng vào nhóm. Qua đó, em hiểu rõ hơn cách AWS quản lý quyền truy cập cho từng người dùng và từng nhóm trong hệ thống.
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+Ngoài ra, em tìm hiểu AWS Key Management Service và vai trò của dịch vụ trong việc quản lý khóa mã hóa. Nội dung này giúp em nhận thức rõ hơn về tầm quan trọng của việc bảo vệ dữ liệu và quản lý quyền truy cập an toàn trên AWS.

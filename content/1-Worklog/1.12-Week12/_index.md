@@ -1,57 +1,60 @@
 ---
 title: "Week 12 Worklog"
-date: 2024-01-01
-weight: 2
+date: 2026-07-06
+weight: 12
 chapter: false
 pre: " <b> 1.12. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+### Week 12 Objectives
 
-### Week 12 Objectives:
+- Review all AWS labs completed during the internship.
+- Complete the group project.
+- Finish the final internship report.
+- Summarize knowledge about AWS architecture, security, and resource management.
+- Prepare the project presentation.
+- Receive feedback and complete the internship program.
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+### Tasks This Week
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| No. | Task | Start | End |
+|-----|------|-------|-----|
+| 1 | Review the AWS labs completed during the internship | 06/07/2026 | 10/07/2026 |
+| 2 | Check and complete any missing practical content | 06/07/2026 | 10/07/2026 |
+| 3 | Complete the group project | 06/07/2026 | 10/07/2026 |
+| 4 | Complete the final internship report | 06/07/2026 | 10/07/2026 |
+| 5 | Summarize knowledge about AWS architecture and services | 06/07/2026 | 10/07/2026 |
+| 6 | Summarize knowledge about security and access management | 06/07/2026 | 10/07/2026 |
+| 7 | Summarize knowledge about resource management and cleanup | 06/07/2026 | 10/07/2026 |
+| 8 | Prepare the project presentation and supporting materials | 06/07/2026 | 10/07/2026 |
+| 9 | Receive feedback and make the final revisions | 06/07/2026 | 10/07/2026 |
+| 10 | Complete and conclude the internship program | 10/07/2026 | 10/07/2026 |
 
+### Week 12 Achievements
 
-### Week 12 Achievements:
+- Reviewed and summarized the AWS labs completed during the internship.
+- Completed the group project according to the plan.
+- Finished the final internship report.
+- Organized the knowledge gained about AWS architecture.
+- Strengthened my understanding of IAM, security, and resource management.
+- Prepared the project presentation.
+- Received and applied the necessary feedback.
+- Completed the First Cloud Journey internship program.
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Knowledge and Skills Gained
 
-* Successfully created and configured an AWS Free Tier account.
+- Strengthened my overall understanding of the AWS services studied during the internship.
+- Improved my ability to design and explain an AWS architecture.
+- Increased awareness of security and access management.
+- Improved my ability to review, manage, and clean up resources.
+- Improved technical report-writing skills.
+- Improved presentation and feedback-receiving skills.
+- Improved my ability to summarize and evaluate project results.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+### Week 12 Reflection
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+During the final week, I reviewed the labs and activities completed throughout the internship. Reviewing each section helped me organize my knowledge of AWS services, security, permissions, and resource management.
 
-* Used AWS CLI to perform basic operations such as:
+I worked with the group members to complete the project and final internship report. In addition to checking the technical content, I revised the presentation and documentation so that they clearly reflected the actual project results.
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+Finally, I prepared the project presentation, received feedback, and completed the internship. The program helped me improve my AWS knowledge, self-learning ability, teamwork, and technical documentation skills.

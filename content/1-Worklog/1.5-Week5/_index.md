@@ -1,57 +1,65 @@
 ---
 title: "Week 5 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-05-18
+weight: 5
 chapter: false
 pre: " <b> 1.5. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+### Week 5 Objectives
 
-### Week 5 Objectives:
+- Continue learning about AWS through practical lab activities.
+- Understand how AWS Storage Gateway connects on-premises environments with AWS storage services.
+- Learn how to create and configure file shares.
+- Practice creating and managing an Amazon S3 bucket.
+- Upload data and configure static website hosting on Amazon S3.
+- Understand Amazon S3 public access settings.
+- Test the website after completing the configuration.
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+### Tasks This Week
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| No. | Task | Start | End |
+|-----|------|-------|-----|
+| 1 | Visit the company office and continue self-study through AWS lectures on YouTube | 18/05/2026 | 24/05/2026 |
+| 2 | Create and configure an AWS Storage Gateway | 18/05/2026 | 24/05/2026 |
+| 3 | Create file shares and review their configuration | 18/05/2026 | 24/05/2026 |
+| 4 | Create an Amazon S3 bucket for storing website data | 18/05/2026 | 24/05/2026 |
+| 5 | Upload data and website files to the S3 bucket | 18/05/2026 | 24/05/2026 |
+| 6 | Enable the static website hosting feature on Amazon S3 | 18/05/2026 | 24/05/2026 |
+| 7 | Configure the S3 Block Public Access settings | 18/05/2026 | 24/05/2026 |
+| 8 | Configure public access permissions for the required objects | 18/05/2026 | 24/05/2026 |
+| 9 | Test the static website and verify that it operates correctly | 18/05/2026 | 24/05/2026 |
 
+### Week 5 Achievements
 
-### Week 5 Achievements:
+- Completed the AWS Storage Gateway creation lab.
+- Learned how to create and configure file shares.
+- Created an Amazon S3 bucket and uploaded website data successfully.
+- Enabled the static website hosting feature on Amazon S3.
+- Practiced configuring S3 Block Public Access settings.
+- Learned how object permissions affect public access to website files.
+- Tested the website and confirmed that the uploaded content could be accessed.
+- Improved my understanding through independent study and AWS video lectures.
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Knowledge and Skills Gained
 
-* Successfully created and configured an AWS Free Tier account.
+**Knowledge and skills developed during the week:**
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+- Basic understanding of AWS Storage Gateway and its purpose.
+- Knowledge of how file shares connect local environments to cloud storage.
+- Ability to create and manage an Amazon S3 bucket.
+- Ability to upload and organize files in Amazon S3.
+- Understanding of static website hosting on Amazon S3.
+- Basic knowledge of S3 bucket permissions and public access settings.
+- Ability to test and validate a website hosted on Amazon S3.
+- Improved self-learning and practical lab skills.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+### Week 5 Reflection
 
-* Used AWS CLI to perform basic operations such as:
+During the fifth week, I visited the company office and continued learning through AWS lectures and practical lab activities. The main topics of the week were AWS Storage Gateway, file shares, and Amazon S3.
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+I practiced creating a Storage Gateway and configuring file shares. These activities helped me understand how an on-premises environment can connect to cloud storage services and access files stored on AWS.
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+I also created an Amazon S3 bucket, uploaded website files, and enabled the static website hosting feature. During this process, I learned how S3 public access settings and object permissions affect whether website content can be accessed from the internet.
+
+After completing the configuration, I tested the website to confirm that the files had been uploaded correctly and that the static website operated as expected. These labs helped me improve my practical AWS skills and better understand the relationship between cloud storage, access permissions, and website hosting.

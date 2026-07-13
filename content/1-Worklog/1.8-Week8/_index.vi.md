@@ -1,59 +1,55 @@
 ---
-title: "Worklog Tuần 8"
-date: 2024-01-01
-weight: 1
+title: "Nhật ký công việc Tuần 8"
+date: 2026-06-08
+weight: 8
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Mục tiêu Tuần 8
 
-### Mục tiêu tuần 8:
+- Nghiên cứu thêm về cấu trúc và cách tổ chức các dịch vụ trong kiến trúc AWS.
+- Tổng hợp lại kiến thức đã tiếp nhận từ các sự kiện và buổi chia sẻ.
+- Trao đổi với các thành viên để thống nhất nội dung project nhóm.
+- Tìm hiểu và cài đặt VMware Workstation.
+- Thực hành xuất máy ảo từ môi trường tại chỗ.
+- Tìm hiểu quy trình tải máy ảo lên AWS.
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Công việc trong Tuần 8
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| STT | Công việc | Bắt đầu | Kết thúc |
+|-----|-----------|---------|----------|
+| 1 | Nghiên cứu cấu trúc AWS và cách các dịch vụ được kết hợp trong một hệ thống | 08/06/2026 | 14/06/2026 |
+| 2 | Tổng hợp lại kiến thức từ các sự kiện và buổi chia sẻ đã tham gia | 08/06/2026 | 14/06/2026 |
+| 3 | Họp nhóm để thống nhất ý tưởng, nội dung và cấu trúc của project | 08/06/2026 | 14/06/2026 |
+| 4 | Chỉnh sửa project dựa trên ý kiến của các thành viên trong nhóm | 08/06/2026 | 14/06/2026 |
+| 5 | Cài đặt và làm quen với VMware Workstation | 08/06/2026 | 14/06/2026 |
+| 6 | Thực hành xuất máy ảo từ môi trường On-premises | 08/06/2026 | 14/06/2026 |
+| 7 | Tìm hiểu và thực hành tải máy ảo lên AWS | 08/06/2026 | 14/06/2026 |
 
+### Kết quả đạt được trong Tuần 8
 
-### Kết quả đạt được tuần 8:
+- Hiểu rõ hơn về cách tổ chức một kiến trúc trên AWS.
+- Tổng hợp được các kiến thức quan trọng từ những sự kiện đã tham gia.
+- Thống nhất được định hướng và nội dung chính của project nhóm.
+- Hoàn thành việc cài đặt và làm quen với VMware Workstation.
+- Biết cách xuất một máy ảo từ môi trường tại chỗ.
+- Tìm hiểu được các bước cơ bản để đưa máy ảo lên AWS.
+- Cải thiện khả năng trao đổi và phối hợp công việc trong nhóm.
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Kiến thức và kỹ năng đạt được
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+- Có cái nhìn tổng quan hơn về kiến trúc AWS.
+- Hiểu vai trò của môi trường On-premises trong mô hình Hybrid Cloud.
+- Biết cách sử dụng VMware Workstation ở mức cơ bản.
+- Hiểu quy trình xuất máy ảo từ môi trường tại chỗ.
+- Có kiến thức ban đầu về việc di chuyển máy ảo lên AWS.
+- Cải thiện kỹ năng tổng hợp kiến thức và làm việc nhóm.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+### Cảm nhận Tuần 8
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+Trong tuần thứ tám, em tập trung nghiên cứu cấu trúc AWS và tổng hợp lại những kiến thức đã tiếp nhận từ các sự kiện, buổi chia sẻ trong chương trình. Việc hệ thống lại kiến thức giúp em hiểu rõ hơn cách các dịch vụ AWS có thể được kết hợp để xây dựng một hệ thống hoàn chỉnh.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+Em cũng tham gia họp nhóm để thống nhất ý tưởng và chỉnh sửa nội dung project. Qua quá trình trao đổi, các thành viên đã phân tích những điểm chưa phù hợp và điều chỉnh project theo hướng rõ ràng hơn.
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+Bên cạnh đó, em làm quen với VMware Workstation, thực hành xuất máy ảo từ môi trường On-premises và tìm hiểu cách tải máy ảo lên AWS. Các hoạt động này giúp em có thêm kiến thức về quá trình di chuyển hệ thống từ môi trường truyền thống lên nền tảng đám mây.

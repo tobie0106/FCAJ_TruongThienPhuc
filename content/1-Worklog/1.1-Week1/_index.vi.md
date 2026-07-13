@@ -1,59 +1,49 @@
 ---
-title: "Worklog Tuần 1"
-date: 2024-01-01
+title: "Nhật ký công việc Tuần 1"
+date: 2026-04-17
 weight: 1
 chapter: false
 pre: " <b> 1.1. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Mục tiêu Tuần 1
 
-### Mục tiêu tuần 1:
+- Tham gia buổi kickoff thực tập và nắm được kế hoạch, mục tiêu của chương trình.
+- Tìm hiểu về kinh nghiệm làm việc và định hướng nghề nghiệp trong lĩnh vực điện toán đám mây.
+- Nắm được những kiến thức cơ bản về Cloud Computing và các dịch vụ AWS.
+- Thực hiện các task nhỏ để làm quen với môi trường thực tập.
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Công việc trong Tuần 1
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| STT | Công việc | Bắt đầu | Kết thúc |
+|-----|-----------|---------|----------|
+| 1 | Tham gia buổi kickoff thực tập tại trường và được phổ biến kế hoạch, mục tiêu của chương trình | 17/04/2026 | 17/04/2026 |
+| 2 | Gặp gỡ và lắng nghe buổi chia sẻ của anh Nguyễn Gia Hưng, Head of Solution Architect | 17/04/2026 | 17/04/2026 |
+| 3 | Tìm hiểu về kinh nghiệm làm việc, định hướng nghề nghiệp và kiến thức nền tảng trong lĩnh vực điện toán đám mây | 18/04/2026 | 20/04/2026 |
+| 4 | Tìm hiểu tổng quan về Cloud Computing và các dịch vụ cơ bản của AWS | 21/04/2026 | 23/04/2026 |
+| 5 | Thực hiện các task nhỏ để làm quen với môi trường và những kiến thức đã được hướng dẫn | 24/04/2026 | 24/04/2026 |
 
+### Kết quả đạt được trong Tuần 1
 
-### Kết quả đạt được tuần 1:
+-  Hiểu được kế hoạch và mục tiêu tổng quan của chương trình thực tập First Cloud Journey.
+-  Tiếp nhận được những chia sẻ hữu ích về định hướng nghề nghiệp trong lĩnh vực điện toán đám mây.
+-  Hiểu được các khái niệm cơ bản về Cloud Computing.
+-  Làm quen với một số dịch vụ cơ bản của AWS và vai trò của từng dịch vụ.
+-  Hoàn thành các task nhỏ được giao trong tuần đầu tiên.
+-  Làm quen với môi trường thực tập và phương pháp học tập trong chương trình.
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Kiến thức và kỹ năng đạt được
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+ **Kiến thức và kỹ năng đã học:**
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+-  Hiểu cơ bản về các khái niệm trong điện toán đám mây.
+-  Có cái nhìn tổng quan về nền tảng AWS.
+-  Hiểu thêm về vai trò và công việc của Solution Architect.
+-  Nhận thức rõ hơn về cơ hội nghề nghiệp trong lĩnh vực điện toán đám mây.
+-  Rèn luyện khả năng tự học và hoàn thành các task kỹ thuật được giao.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+### Cảm nhận Tuần 1
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+Trong tuần đầu tiên, em đã tham gia buổi kickoff thực tập tại trường và được phổ biến về kế hoạch, mục tiêu cũng như những nội dung chính của chương trình. Em cũng có cơ hội lắng nghe anh Nguyễn Gia Hưng, Head of Solution Architect, chia sẻ về kinh nghiệm làm việc, định hướng nghề nghiệp và những kiến thức nền tảng trong lĩnh vực điện toán đám mây.
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+Bên cạnh đó, em đã tìm hiểu các khái niệm cơ bản về Cloud Computing và làm quen với một số dịch vụ AWS phổ biến. Những task nhỏ được giao trong tuần đầu đã giúp em từng bước làm quen với môi trường thực tập, phương pháp tự học và chuẩn bị nền tảng cho các nội dung chuyên sâu hơn trong những tuần tiếp theo.

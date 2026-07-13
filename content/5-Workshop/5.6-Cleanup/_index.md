@@ -1,32 +1,40 @@
 ---
-title : "Clean up"
-date : 2024-01-01
+title : "Clean up resources"
+date : 2026-07-09
 weight : 6
 chapter : false
 pre : " <b> 5.6. </b> "
 ---
-Congratulations on completing this workshop! 
-In this workshop, you learned architecture patterns for accessing Amazon S3 without using the Public Internet. 
-+ By creating a gateway endpoint, you enabled direct communication between EC2 resources and Amazon S3, without traversing an Internet Gateway. 
-+ By creating an interface endpoint you extended S3 connectivity to resources running in your on-premises data center via AWS Site-to-Site VPN or Direct Connect. 
 
-#### clean up
-1. Navigate to Hosted Zones on the left side of Route 53 console. Click the name of *s3.us-east-1.amazonaws.com* zone. Click Delete and confirm deletion by typing delete. 
+### Workshop summary
 
-![hosted zone](/images/5-Workshop/5.6-Cleanup/delete-zone.png)
+Congratulations, you have completed the TaskManager workshop. In this workshop, you validated:
 
-2. Disassociate the Route 53 Resolver Rule - myS3Rule from "VPC Onprem" and Delete it. 
+- IAM dashboard and basic security recommendations.
+- S3 bucket containing the frontend build output.
+- Cognito User Pool `taskmanager-users-dev`.
+- AppSync GraphQL API `TaskManagerAPI-dev`.
+- Lambda functions for backend logic.
+- DynamoDB tables, Global Secondary Index, and PITR.
+- CloudWatch log groups for the Lambda backend.
 
-![hosted zone](/images/5-Workshop/5.6-Cleanup/vpc.png)
+### Clean up resources
 
-4. Open the CloudFormation console  and delete the two CloudFormation Stacks that you created for this lab:
-+ PLOnpremSetup
-+ PLCloudSetup
+If you no longer need the TaskManager environment, clean up resources to avoid additional cost.
 
-![delete stack](/images/5-Workshop/5.6-Cleanup/delete-stack.png)
+1. Delete frontend objects in the `taskmanager-frontend-dev-*` S3 bucket.
+2. Delete the `TaskManagerAPI-dev` AppSync API.
+3. Delete Lambda functions `userManager-dev`, `boardManager-dev`, `taskProcessor-dev`, and `streamProcessor-dev`.
+4. Delete `TaskManager-*` DynamoDB tables if the data is no longer needed.
+5. Delete the `taskmanager-users-dev` Cognito User Pool.
+6. Delete CloudWatch log groups `/aws/lambda/*Manager-dev`, `/aws/lambda/taskProcessor-dev`, and `/aws/lambda/streamProcessor-dev`.
+7. Delete IAM roles or policies created only for this project if they are no longer used.
 
-5. Delete S3 buckets
-+ Open S3 console
-+ Choose the bucket we created for the lab, click and confirm empty. Click delete and confirm delete.
+{{% notice warning %}}
+Before deleting DynamoDB tables or the Cognito User Pool, make sure the data is no longer required. PITR only helps within the configured recovery window when restore is handled correctly.
+{{% /notice %}}
 
-![delete s3](/images/5-Workshop/5.6-Cleanup/delete-s3.png)
+### Conclusion
+
+TaskManager is a complete example of a serverless application on AWS: static frontend hosting, managed authentication, GraphQL API, Lambda compute, DynamoDB database, and CloudWatch observability.
+

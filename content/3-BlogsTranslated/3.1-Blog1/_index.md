@@ -1,126 +1,70 @@
 ---
 title: "Blog 1"
-date: 2024-01-01
+date: 2026-06-17
 weight: 1
 chapter: false
 pre: " <b> 3.1. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# Getting Started with Healthcare Data Lakes: Using Microservices
+# S&P Global's Disaster Recovery strategy with Amazon FSx for NetApp ONTAP
 
-Data lakes can help hospitals and healthcare facilities turn data into business insights, maintain business continuity, and protect patient privacy. A **data lake** is a centralized, managed, and secure repository to store all your data, both in its raw and processed forms for analysis. Data lakes allow you to break down data silos and combine different types of analytics to gain insights and make better business decisions.
+While learning more about AWS, I read an interesting AWS Architecture Blog post about how S&P Global Market Intelligence built a **Disaster Recovery (DR)** strategy using **Amazon FSx for NetApp ONTAP**.
 
-This blog post is part of a larger series on getting started with setting up a healthcare data lake. In my final post of the series, *“Getting Started with Healthcare Data Lakes: Diving into Amazon Cognito”*, I focused on the specifics of using Amazon Cognito and Attribute Based Access Control (ABAC) to authenticate and authorize users in the healthcare data lake solution. In this blog, I detail how the solution evolved at a foundational level, including the design decisions I made and the additional features used. You can access the code samples for the solution in this Git repo for reference.
+Before reading this article, I understood Disaster Recovery mostly as backing up data and restoring it when something goes wrong. This case study helped me realize that, in large systems, DR is much more than backup. It is also about designing a system that can keep serving users quickly when the primary environment or Region has an outage.
 
----
+![alt text](image-1.png)
 
-## Architecture Guidance
+## Article overview
 
-The main change since the last presentation of the overall architecture is the decomposition of a single service into a set of smaller services to improve maintainability and flexibility. Integrating a large volume of diverse healthcare data often requires specialized connectors for each format; by keeping them encapsulated separately as microservices, we can add, remove, and modify each connector without affecting the others. The microservices are loosely coupled via publish/subscribe messaging centered in what I call the “pub/sub hub.”
+The article explains how S&P Global Market Intelligence implemented a DR solution for the Capital IQ platform. Because this platform serves financial data to global customers, availability, data consistency, Recovery Time Objective (RTO), and Recovery Point Objective (RPO) are critical.
 
-This solution represents what I would consider another reasonable sprint iteration from my last post. The scope is still limited to the ingestion and basic parsing of **HL7v2 messages** formatted in **Encoding Rules 7 (ER7)** through a REST interface.
+The key highlight is that the system can fail over to a read-only DR environment in under 15 minutes. If full operation is required, the team can then move the DR environment to read-write mode through a controlled recovery process.
 
-**The solution architecture is now as follows:**
+## Architecture
 
-> *Figure 1. Overall architecture; colored boxes represent distinct services.*
+The solution uses a multi-Region design:
 
----
+- **US-East-1** is the Primary Region.
+- **US-West-2** is the DR Region.
+- **SQL Server** runs on Amazon EC2 instances and is arranged with a Windows Server Failover Cluster model.
+- **Each Region** has an Amazon FSx for NetApp ONTAP file system.
+- **Data** is replicated from the Primary Region to the DR Region using SnapMirror.
+- **FlexClone** creates a volume from the latest replicated snapshot in the DR Region, making data available for read-only access.
 
-While the term *microservices* has some inherent ambiguity, certain traits are common:  
-- Small, autonomous, loosely coupled  
-- Reusable, communicating through well-defined interfaces  
-- Specialized to do one thing well  
-- Often implemented in an **event-driven architecture**
+## Key components
 
-When determining where to draw boundaries between microservices, consider:  
-- **Intrinsic**: technology used, performance, reliability, scalability  
-- **Extrinsic**: dependent functionality, rate of change, reusability  
-- **Human**: team ownership, managing *cognitive load*
+### Amazon FSx for NetApp ONTAP
 
----
+Amazon FSx for NetApp ONTAP is a managed file storage service that supports ONTAP capabilities such as snapshots, replication, and cloning. In this case study, it acts as the storage layer for SQL Server data that must be protected.
 
-## Technology Choices and Communication Scope
+### Snapshots
+Snapshots preserve the state of data at a specific point in time. They provide the foundation for recovery and testing without manually copying the entire dataset.
 
-| Communication scope                       | Technologies / patterns to consider                                                        |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Within a single microservice              | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Between microservices in a single service | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Between services                          | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+### SnapMirror
+SnapMirror replicates data from the Primary Region to the DR Region. According to the article, replication is configured on a 15-minute schedule so the DR Region stays close to production.
 
----
+### FlexClone
+FlexClone is the most interesting part of the solution for me. Instead of rebuilding the environment from scratch, the system can create a clone from a replicated snapshot in the DR Region. This clone operates independently of the replication process, so it can serve read-only traffic while replication continues.
 
-## The Pub/Sub Hub
+## Recovery process
+The DR approach has two stages:
 
-Using a **hub-and-spoke** architecture (or message broker) works well with a small number of tightly related microservices.  
-- Each microservice depends only on the *hub*  
-- Inter-microservice connections are limited to the contents of the published message  
-- Reduces the number of synchronous calls since pub/sub is a one-way asynchronous *push*
+1. **Rapid read-only failover**: use snapshots and FlexClone to make a DR environment available quickly.
+2. **Read-write recovery when needed**: stop writes in the Primary Region, apply a final SnapMirror update, break the replication relationship, and move SQL Server resources to the DR Region.
+This design allows users to keep accessing critical data while the engineering team completes the full recovery workflow.
 
-Drawback: **coordination and monitoring** are needed to avoid microservices processing the wrong message.
+## What I learned
 
----
+As a student learning AWS, this article helped me understand that cloud system design is not only about deploying an application. I also need to think about questions such as:
 
-## Core Microservice
+- What happens when the system fails?
+- How much data could be lost in the worst case?
+- Can users still access important data?
+- How quickly does the system need to recover?
+- Has the failover and fallback process been tested?
+Disaster Recovery is a combination of architecture, data protection, operations, and process. Backup is important, but it is not enough by itself.
 
-Provides foundational data and communication layer, including:  
-- **Amazon S3** bucket for data  
-- **Amazon DynamoDB** for data catalog  
-- **AWS Lambda** to write messages into the data lake and catalog  
-- **Amazon SNS** topic as the *hub*  
-- **Amazon S3** bucket for artifacts such as Lambda code
+## Conclusion
+I still do not fully understand every service and technique in the article, especially Amazon FSx for NetApp ONTAP, SnapMirror, and FlexClone. However, this case study is useful because it shows how a large system designs DR not only to restore data, but also to reduce downtime and maintain access for users.
 
-> Only allow indirect write access to the data lake through a Lambda function → ensures consistency.
-
----
-
-## Front Door Microservice
-
-- Provides an API Gateway for external REST interaction  
-- Authentication & authorization based on **OIDC** via **Amazon Cognito**  
-- Self-managed *deduplication* mechanism using DynamoDB instead of SNS FIFO because:  
-  1. SNS deduplication TTL is only 5 minutes  
-  2. SNS FIFO requires SQS FIFO  
-  3. Ability to proactively notify the sender that the message is a duplicate  
-
----
-
-## Staging ER7 Microservice
-
-- Lambda “trigger” subscribed to the pub/sub hub, filtering messages by attribute  
-- Step Functions Express Workflow to convert ER7 → JSON  
-- Two Lambdas:  
-  1. Fix ER7 formatting (newline, carriage return)  
-  2. Parsing logic  
-- Result or error is pushed back into the pub/sub hub  
-
----
-
-## New Features in the Solution
-
-### 1. AWS CloudFormation Cross-Stack References
-Example *outputs* in the core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+Reference: https://aws.amazon.com/vi/blogs/architecture/sp-globals-innovative-disaster-recovery-strategy-using-amazon-fsx-for-netapp-ontap-snapshots/

@@ -1,95 +1,92 @@
 ---
-title : "VPC Endpoint Policies"
+title : "Kiểm tra DynamoDB, index và PITR"
 date : 2024-01-01
 weight : 5
 chapter : false
-pre : " <b> 5.5 </b> "
+pre : " <b> 5.5. </b> "
 ---
 
-Khi bạn tạo một Interface Endpoint  hoặc cổng, bạn có thể đính kèm một chính sách điểm cuối để kiểm soát quyền truy cập vào dịch vụ mà bạn đang kết nối. Chính sách VPC Endpoint là chính sách tài nguyên IAM mà bạn đính kèm vào điểm cuối. Nếu bạn không đính kèm chính sách khi tạo điểm cuối, thì AWS sẽ đính kèm chính sách mặc định cho bạn để cho phép toàn quyền truy cập vào dịch vụ thông qua điểm cuối.
+### Mục tiêu
 
-Bạn có thể tạo chính sách chỉ hạn chế quyền truy cập vào các S3 bucket cụ thể. Điều này hữu ích nếu bạn chỉ muốn một số Bộ chứa S3 nhất định có thể truy cập được thông qua điểm cuối.
+Phần này kiểm tra các bảng DynamoDB, index phục vụ truy vấn và cấu hình Point-in-Time Recovery (PITR) của hệ thống TaskManager.
 
-Trong phần này, bạn sẽ tạo chính sách VPC Endpoint hạn chế quyền truy cập vào S3 bucket được chỉ định trong chính sách VPC Endpoint.
+### Kiểm tra các bảng DynamoDB
 
-![endpoint diagram](/images/5-Workshop/5.5-Policy/s3-bucket-policy.png)
+1. Mở Amazon DynamoDB Console.
+2. Chọn **Tables**.
+3. Kiểm tra các bảng có tiền tố `TaskManager`.
 
-#### Kết nối tới EC2 và xác minh kết nối tới S3. 
+![Danh sách các bảng DynamoDB của TaskManager](image.png)
 
-1. Bắt đầu một phiên AWS Session Manager mới trên máy chủ có tên là Test-Gateway-Endpoint. Từ phiên này, xác minh rằng bạn có thể liệt kê nội dung của bucket mà bạn đã tạo trong Phần 1: Truy cập S3 từ VPC.
+Các bảng chính:
 
-```
-aws s3 ls s3://<your-bucket-name>
-```
-![test](/images/5-Workshop/5.5-Policy/test1.png)
+- `TaskManager-ActivityLogs-dev`
+- `TaskManager-Boards-dev`
+- `TaskManager-Notifications-dev`
+- `TaskManager-Tasks-dev`
+- `TaskManager-Users-dev`
 
-Nội dung của bucket bao gồm hai tệp có dung lượng 1GB đã được tải lên trước đó.
+Các bảng đều ở trạng thái **Active** và sử dụng chế độ dung lượng **On-demand**. Chế độ này phù hợp với các hệ thống có khối lượng công việc nhỏ hoặc không ổn định vì không cần cấu hình thủ công dung lượng đọc và ghi.
 
-2. Tạo một bucket S3 mới; tuân thủ mẫu đặt tên mà bạn đã sử dụng trong Phần 1, nhưng thêm '-2' vào tên. Để các trường khác là mặc định và nhấp vào **Create**.
+### Kiểm tra Global Secondary Index
 
-![create bucket](/images/5-Workshop/5.5-Policy/create-bucket.png)
+Mở bảng `TaskManager-Users-dev` và chọn tab **Indexes**.
 
-3. Tạo bucket thành công.
+![Index EmailIndex của bảng người dùng](image-1.png)
 
-![Success](/images/5-Workshop/5.5-Policy/create-bucket-success.png)
+Bảng `TaskManager-Users-dev` có Global Secondary Index như sau:
 
-Policy mặc định cho phép truy cập vào tất cả các S3 Buckets thông qua VPC endpoint.
+- Index name: `EmailIndex`
+- Partition key: `email`
+- Trạng thái: `Active`
+- Chế độ dung lượng: On-demand
 
-4. Trong giao diện **Edit Policy**, sao chép và dán theo policy sau, thay thế yourbucketname-2 với tên bucket thứ hai của bạn. Policy này sẽ cho phép truy cập đến bucket mới thông qua VPC endpoint, nhưng không cho phép truy cập đến các bucket còn lại. Chọn **Save** để kích hoạt policy.
+Index này cho phép hệ thống tìm kiếm người dùng theo địa chỉ email một cách hiệu quả mà không cần quét toàn bộ bảng.
 
+### Kiểm tra PITR trên các bảng quan trọng
 
-```
-{
-  "Id": "Policy1631305502445",
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "Stmt1631305501021",
-      "Action": "s3:*",
-      "Effect": "Allow",
-      "Resource": [
-      				"arn:aws:s3:::yourbucketname-2",
-       				"arn:aws:s3:::yourbucketname-2/*"
-       ],
-      "Principal": "*"
-    }
-  ]
-}
-```
+Point-in-Time Recovery cho phép DynamoDB duy trì các bản sao lưu liên tục trong tối đa 35 ngày. Tính năng này hữu ích khi dữ liệu bị cập nhật hoặc xóa nhầm.
 
-![custom policy](/images/5-Workshop/5.5-Policy/policy2.png)
+*Bật PITR*
 
-Cấu hình policy thành công.
+![Cấu hình bật Point-in-Time Recovery](image-2.png)
 
-![success](/images/5-Workshop/5.5-Policy/success.png)
+Trang cấu hình **Edit point-in-time recovery** cho thấy PITR đã được bật với thời gian khôi phục bản sao lưu là 35 ngày.
 
-5. Từ session của bạn trên Test-Gateway-Endpoint instance, kiểm tra truy cập đến S3 bucket bạn tạo ở bước đầu
+*Bảng Board*
 
-```
-aws s3 ls s3://<yourbucketname>
-```
+![Thông tin bảng Boards](image-3.png)
 
-Câu lệnh trả về lỗi bởi vì truy cập vào S3 bucket không có quyền trong VPC endpoint policy.
+`TaskManager-Boards-dev`:
 
-![error](/images/5-Workshop/5.5-Policy/error.png)
+- Partition key: `boardId`
+- Chế độ dung lượng: On-demand
+- Trạng thái bảng: Active
+- PITR: On
 
-6. Trở lại home directory của bạn trên EC2 instance ```cd~```
+*Bảng Task*
 
-+ Tạo file ```fallocate -l 1G test-bucket2.xyz ```
-+ Sao chép file lên bucket thứ  2 ```aws s3 cp test-bucket2.xyz s3://<your-2nd-bucket-name>```
+![Thông tin bảng Tasks](image-4.png)
 
-![success](/images/5-Workshop/5.5-Policy/test2.png)
+`TaskManager-Tasks-dev`:
 
-Thao tác này được cho phép bởi VPC endpoint policy.
+- Partition key: `boardId`
+- Sort key: `taskId`
+- Chế độ dung lượng: On-demand
+- Trạng thái bảng: Active
+- PITR: On
 
-![success](/images/5-Workshop/5.5-Policy/test2-success.png)
+*Bảng User*
 
-Sau đó chúng ta kiểm tra truy cập vào S3 bucket đầu tiên
+![Thông tin bảng Users](image-5.png)
 
- ```aws s3 cp test-bucket2.xyz s3://<your-1st-bucket-name>```
+`TaskManager-Users-dev`:
 
- ![fail](/images/5-Workshop/5.5-Policy/test2-fail.png)
+- Partition key: `userId`
+- Chế độ dung lượng: On-demand
+- Trạng thái bảng: Active
+- PITR: On
 
- Câu lệnh xảy ra lỗi bởi vì bucket không có quyền truy cập bởi VPC endpoint policy.
+### Kết luận
 
-Trong phần này, bạn đã tạo chính sách VPC Endpoint cho Amazon S3 và sử dụng AWS CLI để kiểm tra chính sách. Các hoạt động AWS CLI liên quan đến bucket S3 ban đầu của bạn thất bại vì bạn áp dụng một chính sách chỉ cho phép truy cập đến bucket thứ hai mà bạn đã tạo. Các hoạt động AWS CLI nhắm vào bucket thứ hai của bạn thành công vì chính sách cho phép chúng. Những chính sách này có thể hữu ích trong các tình huống khi bạn cần kiểm soát quyền truy cập vào tài nguyên thông qua VPC Endpoint.
+DynamoDB đã được cấu hình phù hợp cho hệ thống TaskManager. Các bảng được phân chia theo từng nhóm dữ liệu, index tìm kiếm người dùng theo email đã được tạo, chế độ dung lượng On-demand được sử dụng và PITR được bật để bảo vệ dữ liệu của các bảng quan trọng.

@@ -1,57 +1,58 @@
 ---
 title: "Week 4 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-05-11
+weight: 4
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+### Week 4 Objectives
 
-### Week 4 Objectives:
+- Continue learning and practicing fundamental AWS services.
+- Improve my understanding of Amazon EC2, Amazon S3, and AWS IAM.
+- Practice deploying a basic application on Amazon EC2.
+- Learn how to configure appropriate access permissions for AWS resources.
+- Understand the basic principles of cloud storage management and data security.
+- Complete the assigned system configuration and validation tasks.
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+### Tasks This Week
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| No. | Task | Start | End |
+|-----|------|-------|-----|
+| 1 | Continue learning about Amazon EC2, Amazon S3, and AWS IAM | 11/05/2026 | 17/05/2026 |
+| 2 | Practice creating and configuring basic resources on AWS | 11/05/2026 | 17/05/2026 |
+| 3 | Deploy a basic application on an Amazon EC2 instance | 11/05/2026 | 17/05/2026 |
+| 4 | Configure appropriate access permissions for the application and AWS resources | 11/05/2026 | 17/05/2026 |
+| 5 | Learn about cloud storage management and data security | 11/05/2026 | 17/05/2026 |
+| 6 | Complete assigned tasks related to system configuration and validation | 11/05/2026 | 17/05/2026 |
+| 7 | Study independently at home and watch additional AWS lectures on YouTube | 11/05/2026 | 17/05/2026 |
 
+### Week 4 Achievements
 
-### Week 4 Achievements:
+-  Improved my understanding of the basic functions of Amazon EC2, Amazon S3, and AWS IAM.
+-  Learned how to create and configure a basic EC2 instance.
+-  Practiced deploying a simple application on Amazon EC2.
+-  Understood the role of IAM in managing users and access permissions.
+-  Gained additional knowledge about data storage and security on AWS.
+-  Completed the assigned system configuration and validation tasks.
+-  Strengthened my knowledge through independent study and video tutorials.
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Knowledge and Skills Gained
 
-* Successfully created and configured an AWS Free Tier account.
+ **Knowledge and skills developed during the week:**
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+-  Basic knowledge of Amazon EC2 and virtual servers on AWS.
+-  Understanding of how Amazon S3 is used to store data.
+-  Understanding of the role of AWS IAM in access control.
+-  Ability to deploy a basic application on an EC2 instance.
+-  Ability to review the configuration and operation of AWS resources.
+-  Improved self-learning skills through technical documents and video tutorials.
+-  Greater awareness of data security in cloud environments.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+### Week 4 Reflection
 
-* Used AWS CLI to perform basic operations such as:
+During the fourth week, I continued learning and practicing with common AWS services such as Amazon EC2, Amazon S3, and AWS IAM. Through the practical activities, I gained a clearer understanding of the role of each service in building and operating a cloud-based system.
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+I practiced deploying a basic application on Amazon EC2 and learned how to configure appropriate access permissions. This activity helped me realize that deploying an application involves not only configuring a server but also carefully managing permissions and security.
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+In addition, I learned more about managing storage and protecting data on AWS. Studying independently at home and watching AWS lectures on YouTube helped me strengthen my knowledge and better understand the steps required to configure AWS resources.

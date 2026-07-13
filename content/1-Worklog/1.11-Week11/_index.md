@@ -1,57 +1,60 @@
 ---
 title: "Week 11 Worklog"
-date: 2024-01-01
-weight: 2
+date: 2026-06-29
+weight: 11
 chapter: false
 pre: " <b> 1.11. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+### Week 11 Objectives
 
-### Week 11 Objectives:
+- Continue completing the group project based on the agreed AWS architecture.
+- Configure and test EC2, S3, IAM Roles, and Storage Gateway.
+- Validate permissions and connections between resources.
+- Confirm that the services operate according to the design.
+- Remove unused resources.
+- Review cost optimization and summarize the project results.
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+### Tasks This Week
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| No. | Task | Start | End |
+|-----|------|-------|-----|
+| 1 | Continue completing the content and architecture of the group project | 29/06/2026 | 05/07/2026 |
+| 2 | Configure and test Amazon EC2 | 29/06/2026 | 05/07/2026 |
+| 3 | Configure and test Amazon S3 | 29/06/2026 | 05/07/2026 |
+| 4 | Configure IAM Roles and the required permissions | 29/06/2026 | 05/07/2026 |
+| 5 | Configure and test AWS Storage Gateway | 29/06/2026 | 05/07/2026 |
+| 6 | Validate permissions and connections between resources | 29/06/2026 | 05/07/2026 |
+| 7 | Test the overall operation of the system | 29/06/2026 | 05/07/2026 |
+| 8 | Remove unused resources | 29/06/2026 | 05/07/2026 |
+| 9 | Review AWS cost optimization methods | 29/06/2026 | 05/07/2026 |
+| 10 | Summarize the project implementation results | 29/06/2026 | 05/07/2026 |
 
+### Week 11 Achievements
 
-### Week 11 Achievements:
+- Completed most of the group project content.
+- Configured and tested EC2, S3, IAM Roles, and Storage Gateway.
+- Verified access permissions between system components.
+- Tested system connectivity and operation.
+- Identified and corrected several unsuitable configurations.
+- Removed resources that were no longer required.
+- Improved my understanding of AWS cost optimization.
+- Summarized the results for the final internship report.
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Knowledge and Skills Gained
 
-* Successfully created and configured an AWS Free Tier account.
+- Improved AWS resource configuration and validation skills.
+- Better understanding of the relationship between EC2, S3, IAM Roles, and Storage Gateway.
+- Ability to validate access permissions and system connectivity.
+- Improved ability to troubleshoot configuration problems.
+- Ability to identify unused cloud resources.
+- Understanding of the importance of cost optimization.
+- Improved project result summarization skills.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+### Week 11 Reflection
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+During the eleventh week, I worked with the other group members to continue completing the project based on the agreed AWS architecture. I practiced configuring and testing EC2, S3, IAM Roles, and Storage Gateway.
 
-* Used AWS CLI to perform basic operations such as:
+Validating permissions and connections helped me better understand the relationship between resources in the system. When unsuitable configurations were identified, the group discussed and revised them to improve system stability.
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+At the end of the week, I removed unused resources, reviewed cost considerations, and summarized the project results. These activities were important preparation for completing the final report and presenting the project.

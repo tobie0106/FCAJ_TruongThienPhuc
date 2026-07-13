@@ -1,115 +1,128 @@
 ---
 title: "Proposal"
-date: 2024-01-01
+date: 2026-07-09
 weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
-
-In this section, you need to summarize the contents of the workshop that you **plan** to conduct.
-
-# IoT Weather Platform for Lab Research
-## A Unified AWS Serverless Solution for Real-Time Weather Monitoring
+# Task Management System  
+# A Serverless AWS Architecture for Secure Task Collaboration
 
 ### 1. Executive Summary
-The IoT Weather Platform is designed for the ITea Lab team in Ho Chi Minh City to enhance weather data collection and analysis. It supports up to 5 weather stations, with potential scalability to 10-15, utilizing Raspberry Pi edge devices with ESP32 sensors to transmit data via MQTT. The platform leverages AWS Serverless services to deliver real-time monitoring, predictive analytics, and cost efficiency, with access restricted to 5 lab members via Amazon Cognito.
+The Task Management System is designed as a secure, scalable, and low-operations web application for creating, assigning, tracking, and updating work items in real time. The system uses a serverless AWS architecture so the project can focus on application features instead of server provisioning, patching, and capacity planning.
+
+The frontend is delivered through Amazon CloudFront from a private Amazon S3 bucket, with Amazon Route 53 handling DNS, AWS Certificate Manager providing TLS, and AWS WAF protecting the public edge. Users authenticate through Amazon Cognito and send GraphQL queries, mutations, and subscriptions to AWS AppSync with JWT authorization. Business logic runs on AWS Lambda, task data is stored in Amazon DynamoDB with point-in-time recovery enabled, and operational logs, metrics, and alarms are centralized in Amazon CloudWatch. The deployment flow is automated from GitHub through AWS CodePipeline, AWS CodeBuild, and AWS CloudFormation.
 
 ### 2. Problem Statement
 ### What’s the Problem?
-Current weather stations require manual data collection, becoming unmanageable with multiple units. There is no centralized system for real-time data or analytics, and third-party platforms are costly and overly complex.
+Many small teams still manage tasks through chat messages, spreadsheets, or disconnected notes. This makes it difficult to know task ownership, current status, priority, and history. When the team grows, manual updates create duplicated information, missed deadlines, and limited visibility for project tracking.
+
+Traditional web application hosting can also introduce unnecessary operational work for a student or internship project: server maintenance, manual deployment steps, database backup planning, SSL setup, and monitoring configuration.
 
 ### The Solution
-The platform uses AWS IoT Core to ingest MQTT data, AWS Lambda and API Gateway for processing, Amazon S3 for storage (including a data lake), and AWS Glue Crawlers and ETL jobs to extract, transform, and load data from the S3 data lake to another S3 bucket for analysis. AWS Amplify with Next.js provides the web interface, and Amazon Cognito ensures secure access. Similar to Thingsboard and CoreIoT, users can register new devices and manage connections, though this platform operates on a smaller scale and is designed for private use. Key features include real-time dashboards, trend analysis, and low operational costs.
+The proposed system provides a centralized task management application backed by managed AWS services. Users sign in through Cognito, then interact with tasks through AppSync GraphQL APIs. Queries and mutations support task listing, creation, update, assignment, and completion. GraphQL subscriptions support near real-time updates so team members can see task changes without refreshing the page.
+
+Lambda functions handle backend validation and workflow logic, while DynamoDB stores task records with scalable read/write capacity and point-in-time recovery. Static website assets stay private in S3 and are served only through CloudFront. CI/CD automation reduces manual deployment effort and keeps infrastructure changes repeatable through CloudFormation.
 
 ### Benefits and Return on Investment
-The solution establishes a foundational resource for lab members to develop a larger IoT platform, serving as a study resource, and provides a data foundation for AI enthusiasts for model training or analysis. It reduces manual reporting for each station via a centralized platform, simplifying management and maintenance, and improves data reliability. Monthly costs are $0.66 USD per the AWS Pricing Calculator, with a 12-month total of $7.92 USD. All IoT equipment costs are covered by the existing weather station setup, eliminating additional development expenses. The break-even period of 6-12 months is achieved through significant time savings from reduced manual work.
+The system improves team visibility by centralizing task data, status, ownership, and updates. Serverless services keep the operating model lightweight and cost-aware because most components scale with usage. Automated deployment shortens release time, reduces configuration mistakes, and makes the project easier to maintain after the internship period.
 
 ### 3. Solution Architecture
-The platform employs a serverless AWS architecture to manage data from 5 Raspberry Pi-based stations, scalable to 15. Data is ingested via AWS IoT Core, stored in an S3 data lake, and processed by AWS Glue Crawlers and ETL jobs to transform and load it into another S3 bucket for analysis. Lambda and API Gateway handle additional processing, while Amplify with Next.js hosts the dashboard, secured by Cognito. The architecture is detailed below:
+The architecture follows a serverless pattern with separated frontend delivery, authentication, API, backend, data, observability, and CI/CD layers. The public website request is resolved by Route 53 and delivered by CloudFront from a private S3 bucket. Login requests go through Cognito. Authenticated application requests use AppSync GraphQL with JWT tokens, then AppSync invokes Lambda for business logic and DynamoDB for persistent task data. CloudWatch collects logs, metrics, and alarms across the application.
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
-
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
-
+![alt text](image.png)
 ### AWS Services Used
-- **AWS IoT Core**: Ingests MQTT data from 5 stations, scalable to 15.
-- **AWS Lambda**: Processes data and triggers Glue jobs (two functions).
-- **Amazon API Gateway**: Facilitates web app communication.
-- **Amazon S3**: Stores raw data in a data lake and processed outputs (two buckets).
-- **AWS Glue**: Crawlers catalog data, and ETL jobs transform and load it.
-- **AWS Amplify**: Hosts the Next.js web interface.
-- **Amazon Cognito**: Secures access for lab users.
+- **Amazon Route 53**: Manages DNS records for the application domain.
+- **Amazon CloudFront**: Serves the frontend globally and connects users to the private S3 origin.
+- **Amazon S3**: Stores static website assets in a private bucket.
+- **AWS WAF**: Protects the CloudFront distribution against common web attacks.
+- **AWS Certificate Manager**: Provides and manages the TLS certificate for HTTPS.
+- **Amazon Cognito**: Handles user sign-up, sign-in, JWT token issuance, and authentication.
+- **AWS AppSync**: Provides the GraphQL API for queries, mutations, and subscriptions.
+- **AWS Lambda**: Runs backend task workflow logic without managing servers.
+- **Amazon DynamoDB**: Stores task, user, status, and assignment data with point-in-time recovery enabled.
+- **Amazon CloudWatch**: Collects logs, metrics, and alarms for monitoring and troubleshooting.
+- **AWS CodePipeline**: Automates the deployment workflow from source code changes.
+- **AWS CodeBuild**: Builds and validates application artifacts.
+- **AWS CloudFormation**: Provisions and updates infrastructure as code.
+- **GitHub**: Stores source code and triggers the CI/CD pipeline.
 
 ### Component Design
-- **Edge Devices**: Raspberry Pi collects and filters sensor data, sending it to IoT Core.
-- **Data Ingestion**: AWS IoT Core receives MQTT messages from the edge devices.
-- **Data Storage**: Raw data is stored in an S3 data lake; processed data is stored in another S3 bucket.
-- **Data Processing**: AWS Glue Crawlers catalog the data, and ETL jobs transform it for analysis.
-- **Web Interface**: AWS Amplify hosts a Next.js app for real-time dashboards and analytics.
-- **User Management**: Amazon Cognito manages user access, allowing up to 5 active accounts.
+- **Frontend delivery**: Static frontend files are uploaded to a private S3 bucket and delivered through CloudFront. Route 53 maps the custom domain to the CloudFront distribution, and ACM enables HTTPS.
+- **Security edge**: AWS WAF is attached to CloudFront to filter malicious or unexpected traffic before requests reach the application.
+- **Authentication**: Cognito manages users and returns JWT tokens after login. The frontend attaches the token to GraphQL requests.
+- **API layer**: AppSync validates the JWT token and exposes GraphQL operations for task creation, update, assignment, filtering, and real-time subscription events.
+- **Backend logic**: Lambda functions implement business rules such as validating task ownership, updating task status, and preparing response payloads.
+- **Data layer**: DynamoDB stores task data and enables point-in-time recovery to protect against accidental writes or deletes.
+- **Operations**: CloudWatch receives logs and metrics from AppSync, Lambda, DynamoDB, and the deployment pipeline. Alarms can notify the team when errors or abnormal usage appear.
+- **Deployment**: Developers push code to GitHub. CodePipeline and CodeBuild package the application, then CloudFormation updates AWS resources and deploys the frontend/backend changes.
 
 ### 4. Technical Implementation
 **Implementation Phases**
-This project has two parts—setting up weather edge stations and building the weather platform—each following 4 phases:
-- Build Theory and Draw Architecture: Research Raspberry Pi setup with ESP32 sensors and design the AWS serverless architecture (1 month pre-internship)
-- Calculate Price and Check Practicality: Use AWS Pricing Calculator to estimate costs and adjust if needed (Month 1).
-- Fix Architecture for Cost or Solution Fit: Tweak the design (e.g., optimize Lambda with Next.js) to stay cost-effective and usable (Month 2).
-- Develop, Test, and Deploy: Code the Raspberry Pi setup, AWS services with CDK/SDK, and Next.js app, then test and release to production (Months 2-3).
+- **Requirement analysis and architecture design**: Define user roles, task lifecycle, GraphQL operations, security boundaries, and AWS service responsibilities.
+- **Infrastructure as code setup**: Create CloudFormation templates for S3, CloudFront, WAF, ACM, Cognito, AppSync, Lambda, DynamoDB, CloudWatch, and CI/CD resources.
+- **Frontend development**: Build the task interface, authentication screens, task list, task detail, filters, and real-time update behavior.
+- **Backend and API development**: Define GraphQL schema, connect resolvers to Lambda, implement validation logic, and integrate DynamoDB access patterns.
+- **Monitoring and security hardening**: Configure CloudWatch logs, metrics, alarms, IAM least-privilege permissions, DynamoDB PITR, and WAF rules.
+- **Testing and deployment**: Validate login, CRUD flows, subscription updates, CI/CD deployment, rollback behavior, and basic failure scenarios.
 
 **Technical Requirements**
-- Weather Edge Station: Sensors (temperature, humidity, rainfall, wind speed), a microcontroller (ESP32), and a Raspberry Pi as the edge device. Raspberry Pi runs Raspbian, handles Docker for filtering, and sends 1 MB/day per station via MQTT over Wi-Fi.
-- Weather Platform: Practical knowledge of AWS Amplify (hosting Next.js), Lambda (minimal use due to Next.js), AWS Glue (ETL), S3 (two buckets), IoT Core (gateway and rules), and Cognito (5 users). Use AWS CDK/SDK to code interactions (e.g., IoT Core rules to S3). Next.js reduces Lambda workload for the fullstack web app.
+- A static web frontend that can be built and deployed to S3.
+- Cognito user pool for authentication and JWT-based authorization.
+- AppSync GraphQL schema covering task queries, mutations, and subscriptions.
+- Lambda runtime for backend logic and DynamoDB integration.
+- DynamoDB table design for tasks, users, projects, status, priority, and assignment access patterns.
+- CloudFormation templates for repeatable infrastructure provisioning.
+- CI/CD pipeline connected to GitHub for automated build and deployment.
+- CloudWatch dashboards or alarms for error tracking and operational visibility.
 
 ### 5. Timeline & Milestones
 **Project Timeline**
-- Pre-Internship (Month 0): 1 month for planning and old station review.
-- Internship (Months 1-3): 3 months.
-    - Month 1: Study AWS and upgrade hardware.
-    - Month 2: Design and adjust architecture.
-    - Month 3: Implement, test, and launch.
-- Post-Launch: Up to 1 year for research.
+- **Pre-implementation**: Research AWS serverless services, compare architecture options, and finalize the project scope.
+- **Month 1**: Design the solution architecture, define data model, create initial CloudFormation templates, and configure the basic frontend hosting path.
+- **Month 2**: Implement Cognito authentication, AppSync GraphQL API, Lambda functions, and DynamoDB persistence.
+- **Month 3**: Complete CI/CD, monitoring, WAF configuration, integration testing, documentation, and final project presentation.
+- **Post-launch**: Improve UI/UX, add team/project grouping, enhance audit logging, and optimize cost based on real usage.
 
 ### 6. Budget Estimation
-You can find the budget estimation on the [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01).  
-Or you can download the [Budget Estimation File](../attachments/budget_estimation.pdf).
+The project is designed for a small internship-scale workload, so most usage should stay within low-cost or free-tier levels. The final estimate should be recalculated in the [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01) before deployment because AWS pricing depends on Region, traffic, and selected plans.
 
-### Infrastructure Costs
-- AWS Services:
-    - AWS Lambda: $0.00/month (1,000 requests, 512 MB storage).
-    - S3 Standard: $0.15/month (6 GB, 2,100 requests, 1 GB scanned).
-    - Data Transfer: $0.02/month (1 GB inbound, 1 GB outbound).
-    - AWS Amplify: $0.35/month (256 MB, 500 ms requests).
-    - Amazon API Gateway: $0.01/month (2,000 requests).
-    - AWS Glue ETL Jobs: $0.02/month (2 DPUs).
-    - AWS Glue Crawlers: $0.07/month (1 crawler).
-    - MQTT (IoT Core): $0.08/month (5 devices, 45,000 messages).
-
-Total: $0.7/month, $8.40/12 months
-
-- Hardware: $265 one-time (Raspberry Pi 5 and sensors).
+### Estimated Infrastructure Costs
+- **Route 53**: approximately $0.50/month for one public hosted zone, plus DNS query charges if applicable.
+- **CloudFront and S3**: expected to be very low for static assets and small traffic; CloudFront also offers a free plan with monthly usage allowances.
+- **Cognito**: expected $0/month for a small internal user base within the monthly active user free tier.
+- **AppSync**: expected $0/month during free-tier usage; beyond free tier, query/mutation and real-time operations are usage-based.
+- **Lambda**: expected $0/month for low invocation volume within the Lambda free tier.
+- **DynamoDB**: expected $0/month for a small table within free-tier storage/provisioned capacity, or low pay-per-request cost if using on-demand mode.
+- **CloudWatch**: expected $0/month if logs, metrics, and alarms stay within the free tier.
+- **WAF**: the main recurring security cost if enabled separately; estimate around $10-15/month for one Web ACL with a small rule set and low request volume.
+- **CodePipeline, CodeBuild, and CloudFormation**: expected to remain low for a small CI/CD pipeline with limited builds.
+ **Estimated total**: around $1-3/month for the core low-traffic serverless application without separate WAF charges, or around $12-18/month with WAF enabled.
 
 ### 7. Risk Assessment
 #### Risk Matrix
-- Network Outages: Medium impact, medium probability.
-- Sensor Failures: High impact, low probability.
-- Cost Overruns: Medium impact, low probability.
+- Misconfigured authentication or authorization: High impact, medium probability.
+-GraphQL resolver or Lambda errors: Medium impact, medium probability.
+- DynamoDB access pattern mismatch: Medium impact, medium probability.
+- Accidental data deletion or incorrect updates: High impact, low probability.
+- Unexpected cost from WAF, logs, or traffic spikes: Medium impact, low probability.
+- CI/CD deployment failure: Medium impact, medium probability.
 
 #### Mitigation Strategies
-- Network: Local storage on Raspberry Pi with Docker.
-- Sensors: Regular checks and spares.
-- Cost: AWS budget alerts and optimization.
-
+- Apply least-privilege IAM permissions and validate Cognito JWT authorization in AppSync.
+- Use structured logging and CloudWatch alarms for Lambda and AppSync errors.
+- Design DynamoDB keys around real task access patterns before implementation.
+- Enable DynamoDB point-in-time recovery and avoid direct manual writes in production.
+- Configure AWS Budgets and review CloudWatch log retention settings.
+- Keep infrastructure changes in CloudFormation and test the pipeline before final deployment.
 #### Contingency Plans
-- Revert to manual methods if AWS fails.
-- Use CloudFormation for cost-related rollbacks.
+- Roll back failed deployments through CloudFormation and CodePipeline.
+- Restore DynamoDB records through point-in-time recovery if data is accidentally modified.
+-Temporarily disable non-critical features such as subscriptions or WAF rules if they cause cost or availability issues during testing.
+- Use manual deployment only as a short-term fallback while fixing the CI/CD pipeline.
 
 ### 8. Expected Outcomes
 #### Technical Improvements: 
-Real-time data and analytics replace manual processes.  
-Scalable to 10-15 stations.
+The final system provides a secure serverless task management application with managed authentication, real-time GraphQL updates, automated deployment, centralized monitoring, and resilient task data storage.
 #### Long-term Value
-1-year data foundation for AI research.  
-Reusable for future projects.
+The architecture can be reused as a foundation for future team collaboration tools, issue tracking systems, or internal workflow applications. It also demonstrates practical AWS skills across frontend hosting, identity, serverless backend, NoSQL data modeling, monitoring, security, and CI/CD automation.

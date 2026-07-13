@@ -1,57 +1,60 @@
 ---
 title: "Week 10 Worklog"
-date: 2024-01-01
-weight: 2
+date: 2026-06-22
+weight: 10
 chapter: false
 pre: " <b> 1.10. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+### Week 10 Objectives
 
-### Week 10 Objectives:
+- Continue studying AWS architecture for the project.
+- Develop and improve the group project idea.
+- Receive feedback from AWS members about the system architecture.
+- Practice exporting a virtual machine from an instance.
+- Clean up unused AWS resources.
+- Create and configure AWS Storage Gateway.
+- Create a File Share and connect it to an on-premises machine.
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+### Tasks This Week
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| No. | Task | Start | End |
+|-----|------|-------|-----|
+| 1 | Study an AWS architecture suitable for the project requirements | 22/06/2026 | 28/06/2026 |
+| 2 | Develop and revise the project idea | 22/06/2026 | 28/06/2026 |
+| 3 | Receive feedback from AWS members about the proposed architecture | 22/06/2026 | 28/06/2026 |
+| 4 | Practice exporting a virtual machine from an instance | 22/06/2026 | 28/06/2026 |
+| 5 | Review and clean up resources in the AWS Cloud environment | 22/06/2026 | 28/06/2026 |
+| 6 | Create and configure AWS Storage Gateway | 22/06/2026 | 28/06/2026 |
+| 7 | Create a File Share for data sharing | 22/06/2026 | 28/06/2026 |
+| 8 | Mount the File Share on an on-premises machine | 22/06/2026 | 28/06/2026 |
+| 9 | Test the connection and access to the shared data | 22/06/2026 | 28/06/2026 |
 
+### Week 10 Achievements
 
-### Week 10 Achievements:
+- Further developed the group project idea and architecture.
+- Received feedback that helped improve the AWS architecture.
+- Practiced exporting a virtual machine from an instance.
+- Removed unused resources from AWS.
+- Successfully created AWS Storage Gateway.
+- Created and configured a File Share.
+- Mounted the File Share on an on-premises machine.
+- Verified the connection between the on-premises environment and AWS.
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Knowledge and Skills Gained
 
-* Successfully created and configured an AWS Free Tier account.
+- Improved ability to analyze and select AWS services for a project.
+- Ability to receive and apply technical feedback.
+- Better understanding of virtual machine export and migration.
+- Ability to review and clean up AWS resources.
+- Understanding of how AWS Storage Gateway connects on-premises environments to AWS.
+- Ability to create, mount, and test a File Share.
+- Greater awareness of cloud resource and cost management.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+### Week 10 Reflection
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+During the tenth week, I continued studying AWS architecture and developing the group project idea. The group received feedback from AWS members regarding the selection and combination of services in the proposed architecture.
 
-* Used AWS CLI to perform basic operations such as:
+I also practiced exporting a virtual machine from an instance and cleaning up unused AWS resources. These activities helped me understand resource lifecycle management and the importance of preventing unnecessary costs.
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+Another important activity was creating AWS Storage Gateway and a File Share, then mounting the File Share on an on-premises machine. Through this lab, I gained a better understanding of how an on-premises environment can connect to and use storage services on AWS.

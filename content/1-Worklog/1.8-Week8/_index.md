@@ -1,57 +1,55 @@
 ---
 title: "Week 8 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-06-08
+weight: 8
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+### Week 8 Objectives
 
-### Week 8 Objectives:
+- Study AWS architecture and how services are organized in a cloud system.
+- Review and summarize the knowledge gained from technical events.
+- Discuss and finalize the group project structure.
+- Learn how to install and use VMware Workstation.
+- Practice exporting a virtual machine from an on-premises environment.
+- Learn the basic process of uploading a virtual machine to AWS.
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+### Tasks This Week
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| No. | Task | Start | End |
+|-----|------|-------|-----|
+| 1 | Study AWS architecture and how services are combined in a system | 08/06/2026 | 14/06/2026 |
+| 2 | Review and summarize knowledge from the events and sharing sessions | 08/06/2026 | 14/06/2026 |
+| 3 | Join a group meeting to finalize the project idea, content, and architecture | 08/06/2026 | 14/06/2026 |
+| 4 | Revise the project based on feedback from group members | 08/06/2026 | 14/06/2026 |
+| 5 | Install and become familiar with VMware Workstation | 08/06/2026 | 14/06/2026 |
+| 6 | Practice exporting a virtual machine from an on-premises environment | 08/06/2026 | 14/06/2026 |
+| 7 | Learn and practice uploading a virtual machine to AWS | 08/06/2026 | 14/06/2026 |
 
+### Week 8 Achievements
 
-### Week 8 Achievements:
+- Gained a better understanding of how an AWS architecture is organized.
+- Summarized important knowledge from the events I attended.
+- Finalized the main direction and content of the group project.
+- Installed and became familiar with VMware Workstation.
+- Learned how to export a virtual machine from an on-premises environment.
+- Understood the basic steps required to upload a virtual machine to AWS.
+- Improved communication and coordination with group members.
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Knowledge and Skills Gained
 
-* Successfully created and configured an AWS Free Tier account.
+- Broader understanding of AWS architecture.
+- Understanding of the role of on-premises environments in a hybrid cloud model.
+- Basic ability to use VMware Workstation.
+- Understanding of the virtual machine export process.
+- Initial knowledge of migrating virtual machines to AWS.
+- Improved knowledge-summary and teamwork skills.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+### Week 8 Reflection
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+During the eighth week, I focused on studying AWS architecture and reviewing the knowledge gained from technical events and sharing sessions. Organizing this information helped me better understand how different AWS services can be combined to build a complete system.
 
-* Used AWS CLI to perform basic operations such as:
+I also participated in a group meeting to finalize the project idea and revise its content. Through discussion, the group identified areas that needed improvement and updated the project structure to make it clearer.
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+In addition, I became familiar with VMware Workstation, practiced exporting a virtual machine from an on-premises environment, and learned how a virtual machine could be uploaded to AWS. These activities gave me basic knowledge of migrating traditional systems to the cloud.

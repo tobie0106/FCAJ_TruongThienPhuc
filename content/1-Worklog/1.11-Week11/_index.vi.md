@@ -1,59 +1,60 @@
 ---
-title: "Worklog Tuần 11"
-date: 2024-01-01
-weight: 2
+title: "Nhật ký công việc Tuần 11"
+date: 2026-06-29
+weight: 11
 chapter: false
 pre: " <b> 1.11. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Mục tiêu Tuần 11
 
-### Mục tiêu tuần 11:
+- Tiếp tục hoàn thiện project nhóm theo kiến trúc AWS đã thống nhất.
+- Thực hành cấu hình EC2, S3, IAM Role và Storage Gateway.
+- Kiểm tra phân quyền và khả năng kết nối giữa các tài nguyên.
+- Xác nhận các dịch vụ hoạt động đúng theo thiết kế.
+- Dọn dẹp tài nguyên không còn sử dụng.
+- Tối ưu chi phí và tổng hợp kết quả project.
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Công việc trong Tuần 11
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| STT | Công việc | Bắt đầu | Kết thúc |
+|-----|-----------|---------|----------|
+| 1 | Tiếp tục hoàn thiện nội dung và kiến trúc của project nhóm | 29/06/2026 | 05/07/2026 |
+| 2 | Cấu hình và kiểm tra Amazon EC2 | 29/06/2026 | 05/07/2026 |
+| 3 | Cấu hình và kiểm tra Amazon S3 | 29/06/2026 | 05/07/2026 |
+| 4 | Cấu hình IAM Role và quyền truy cập cần thiết | 29/06/2026 | 05/07/2026 |
+| 5 | Cấu hình và kiểm tra AWS Storage Gateway | 29/06/2026 | 05/07/2026 |
+| 6 | Kiểm tra phân quyền và khả năng kết nối giữa các tài nguyên | 29/06/2026 | 05/07/2026 |
+| 7 | Kiểm tra hoạt động tổng thể của hệ thống | 29/06/2026 | 05/07/2026 |
+| 8 | Dọn dẹp các tài nguyên không còn sử dụng | 29/06/2026 | 05/07/2026 |
+| 9 | Xem xét phương án tối ưu chi phí AWS | 29/06/2026 | 05/07/2026 |
+| 10 | Tổng hợp kết quả thực hiện project | 29/06/2026 | 05/07/2026 |
 
+### Kết quả đạt được trong Tuần 11
 
-### Kết quả đạt được tuần 11:
+- Hoàn thiện phần lớn nội dung của project nhóm.
+- Cấu hình và kiểm tra được các tài nguyên EC2, S3, IAM Role và Storage Gateway.
+- Xác minh được quyền truy cập giữa các thành phần.
+- Kiểm tra được khả năng kết nối và hoạt động của hệ thống.
+- Phát hiện và điều chỉnh một số cấu hình chưa phù hợp.
+- Dọn dẹp các tài nguyên không còn cần thiết.
+- Hiểu thêm về cách tối ưu chi phí AWS.
+- Tổng hợp được kết quả để chuẩn bị báo cáo cuối kỳ.
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Kiến thức và kỹ năng đạt được
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+- Cải thiện kỹ năng cấu hình và kiểm tra tài nguyên AWS.
+- Hiểu rõ hơn mối liên hệ giữa EC2, S3, IAM Role và Storage Gateway.
+- Biết cách xác minh quyền truy cập và kết nối hệ thống.
+- Nâng cao khả năng kiểm tra lỗi dựa trên cấu hình thực tế.
+- Biết cách xác định tài nguyên không còn sử dụng.
+- Hiểu tầm quan trọng của việc tối ưu chi phí.
+- Cải thiện khả năng tổng hợp kết quả project.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+### Cảm nhận Tuần 11
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+Trong tuần thứ mười một, em cùng các thành viên tiếp tục hoàn thiện project nhóm dựa trên kiến trúc AWS đã thống nhất. Em thực hành cấu hình và kiểm tra các dịch vụ EC2, S3, IAM Role và Storage Gateway.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+Quá trình kiểm tra phân quyền và kết nối giúp em hiểu rõ hơn về mối liên hệ giữa các tài nguyên trong hệ thống. Khi phát hiện cấu hình chưa phù hợp, nhóm đã trao đổi và điều chỉnh để hệ thống hoạt động ổn định hơn.
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+Cuối tuần, em thực hiện dọn dẹp các tài nguyên không còn sử dụng, xem xét vấn đề chi phí và tổng hợp kết quả. Đây là bước chuẩn bị quan trọng trước khi hoàn thiện báo cáo và trình bày project.

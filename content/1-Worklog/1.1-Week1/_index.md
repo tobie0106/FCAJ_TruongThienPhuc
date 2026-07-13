@@ -1,57 +1,49 @@
 ---
 title: "Week 1 Worklog"
-date: 2024-01-01
+date: 2026-04-17
 weight: 1
 chapter: false
 pre: " <b> 1.1. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+### Week 1 Objectives
 
-### Week 1 Objectives:
+- Attend the internship kickoff session and understand the program plan and objectives.
+- Learn about the working experience and career orientation in cloud computing.
+- Gain a basic understanding of Cloud Computing and AWS services.
+- Complete introductory tasks to become familiar with the internship environment.
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+### Tasks This Week
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| No. | Task | Start | End |
+|-----|------|-------|-----|
+| 1 | Attend the internship kickoff session at the university and receive information about the program plan and objectives | 17/04/2026 | 17/04/2026 |
+| 2 | Meet and listen to a sharing session from Mr. Nguyen Gia Hung, Head of Solution Architect | 17/04/2026 | 17/04/2026 |
+| 3 | Learn about working experience, career orientation, and basic knowledge of cloud computing | 18/04/2026 | 20/04/2026 |
+| 4 | Study the overview of Cloud Computing and fundamental AWS services | 21/04/2026 | 23/04/2026 |
+| 5 | Complete introductory tasks to become familiar with the working environment and learned knowledge | 24/04/2026 | 24/04/2026 |
 
+### Week 1 Achievements
 
-### Week 1 Achievements:
+-  Understood the overall plan and objectives of the First Cloud Journey internship program.
+-  Gained useful information about career development in cloud computing.
+-  Learned the fundamental concepts of Cloud Computing.
+-  Became familiar with several basic AWS services and their purposes.
+-  Completed introductory tasks assigned during the first week.
+-  Became more familiar with the internship environment and learning process.
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Experience Gained
 
-* Successfully created and configured an AWS Free Tier account.
+ **Knowledge and Skills Gained:**
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+-  Basic understanding of cloud computing concepts.
+-  Overview of the AWS cloud platform.
+-  Better understanding of the role of a Solution Architect.
+-  Improved awareness of career opportunities in cloud computing.
+-  Practiced self-learning and completing assigned technical tasks.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+### Week 1 Reflection
 
-* Used AWS CLI to perform basic operations such as:
+During the first week, I participated in the internship kickoff session at the university and learned about the program's plan, objectives, and expected outcomes. I also had the opportunity to listen to Mr. Nguyen Gia Hung, Head of Solution Architect, share his working experience, career orientation, and fundamental knowledge of cloud computing.
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+In addition, I studied the basic concepts of Cloud Computing and explored several fundamental AWS services. The introductory tasks helped me become familiar with the internship environment and prepared me for more advanced AWS activities in the following weeks.

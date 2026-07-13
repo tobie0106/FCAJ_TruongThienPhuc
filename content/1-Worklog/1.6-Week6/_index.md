@@ -1,57 +1,68 @@
 ---
 title: "Week 6 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-05-25
+weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+### Week 6 Objectives
 
-### Week 6 Objectives:
+- Continue learning through AWS video lectures and practical labs.
+- Learn how to protect data in Amazon S3 by using Block Public Access.
+- Understand the role of Amazon CloudFront in content delivery.
+- Practice configuring and testing a CloudFront distribution.
+- Learn about the Amazon S3 Bucket Versioning feature.
+- Practice moving and copying objects in Amazon S3.
+- Understand how to replicate data across different AWS Regions.
+- Practice creating S3 buckets and deploying basic AWS infrastructure.
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+### Tasks This Week
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| No. | Task | Start | End |
+|-----|------|-------|-----|
+| 1 | Watch AWS lectures on YouTube and continue self-study | 25/05/2026 | 31/05/2026 |
+| 2 | Configure Block All Public Access for an Amazon S3 bucket | 25/05/2026 | 31/05/2026 |
+| 3 | Learn about and configure Amazon CloudFront | 25/05/2026 | 31/05/2026 |
+| 4 | Test content delivery through CloudFront | 25/05/2026 | 31/05/2026 |
+| 5 | Enable and test Bucket Versioning on Amazon S3 | 25/05/2026 | 31/05/2026 |
+| 6 | Practice moving objects between storage locations in Amazon S3 | 25/05/2026 | 31/05/2026 |
+| 7 | Practice replicating objects between S3 buckets in different AWS Regions | 25/05/2026 | 31/05/2026 |
+| 8 | Create additional Amazon S3 buckets for the lab activities | 25/05/2026 | 31/05/2026 |
+| 9 | Practice deploying AWS infrastructure according to the lab instructions | 25/05/2026 | 31/05/2026 |
 
+### Week 6 Achievements
 
-### Week 6 Achievements:
+- Completed the configuration of Block All Public Access for an Amazon S3 bucket.
+- Understood the role of Amazon CloudFront in delivering content to users.
+- Practiced creating and configuring a CloudFront distribution.
+- Successfully tested content delivery through CloudFront.
+- Learned how to enable and use Amazon S3 Bucket Versioning.
+- Understood how Versioning stores multiple versions of the same object.
+- Practiced moving objects within Amazon S3.
+- Practiced replicating data between S3 buckets in different AWS Regions.
+- Completed the labs for creating S3 buckets and deploying basic infrastructure.
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Knowledge and Skills Gained
 
-* Successfully created and configured an AWS Free Tier account.
+**Knowledge and skills developed during the week:**
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+- Understanding of how Block Public Access prevents unintended public access.
+- Basic understanding of how Amazon CloudFront uses Amazon S3 as an origin.
+- Ability to create, configure, and test a CloudFront distribution.
+- Understanding of how a content delivery network can improve content access speed.
+- Ability to enable and manage Bucket Versioning in Amazon S3.
+- Understanding of how to recover previous versions when an object is modified or accidentally deleted.
+- Ability to move and copy objects in Amazon S3.
+- Basic knowledge of data replication across multiple AWS Regions.
+- Improved skills in deploying and validating AWS resources.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+### Week 6 Reflection
 
-* Used AWS CLI to perform basic operations such as:
+During the sixth week, I continued studying through AWS video lectures and completed practical labs related to Amazon S3 and Amazon CloudFront. First, I learned how to use Block All Public Access to prevent objects in an S3 bucket from being accessed publicly without permission.
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+I then practiced configuring Amazon CloudFront to deliver content stored in Amazon S3. Through this lab, I gained a better understanding of how CloudFront distributes content to users more efficiently while helping control access to the original data source.
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+I also learned about and enabled the Bucket Versioning feature. This feature allows Amazon S3 to retain multiple versions of the same object, reducing the risk of data loss when files are modified or accidentally deleted.
+
+In addition, I practiced moving objects, creating additional S3 buckets, and configuring data replication across different AWS Regions. These activities helped me better understand data management, content protection, and storage infrastructure deployment on AWS.

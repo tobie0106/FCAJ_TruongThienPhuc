@@ -1,59 +1,56 @@
 ---
-title: "Worklog Tuần 3"
-date: 2024-01-01
-weight: 1
+title: "Nhật ký công việc Tuần 3"
+date: 2026-05-03
+weight: 3
 chapter: false
 pre: " <b> 1.3. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Mục tiêu Tuần 3
 
-### Mục tiêu tuần 3:
+- Tham gia các buổi họp và sự kiện được tổ chức tại công ty.
+- Học hỏi kiến thức chuyên môn và kinh nghiệm thực tế từ các anh/chị trong công ty.
+- Tìm hiểu một số dự án được xây dựng trên nền tảng AWS.
+- Hiểu cách điện toán đám mây được ứng dụng vào các hệ thống thực tế.
+- Tiếp tục tự học và hoàn thành các task được giao.
+- Làm quen thêm với quy trình làm việc trong môi trường doanh nghiệp.
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Công việc trong Tuần 3
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| STT | Công việc | Bắt đầu | Kết thúc |
+|-----|-----------|---------|----------|
+| 1 | Tham gia buổi meeting và sự kiện được tổ chức tại công ty | 03/05/2026 | 10/05/2026 |
+| 2 | Lắng nghe các anh/chị chia sẻ kiến thức chuyên môn và kinh nghiệm làm việc thực tế | 03/05/2026 | 10/05/2026 |
+| 3 | Tìm hiểu một số dự án được xây dựng bằng các dịch vụ AWS | 03/05/2026 | 10/05/2026 |
+| 4 | Tìm hiểu cách điện toán đám mây được ứng dụng trong các dự án và hệ thống thực tế | 03/05/2026 | 10/05/2026 |
+| 5 | Nghiên cứu sâu hơn về điện toán đám mây và chủ động tham khảo thêm các tài liệu kỹ thuật | 03/05/2026 | 10/05/2026 |
+| 6 | Tiếp tục thực hiện các task được giao và tìm hiểu quy trình làm việc trong doanh nghiệp | 03/05/2026 | 10/05/2026 |
 
+### Kết quả đạt được trong Tuần 3
 
-### Kết quả đạt được tuần 3:
+-  Tham gia buổi meeting và sự kiện được tổ chức tại công ty.
+-  Tiếp nhận thêm nhiều kiến thức hữu ích từ những chia sẻ thực tế của các anh/chị.
+-  Tìm hiểu được một số dự án được xây dựng trên nền tảng AWS.
+-  Hiểu rõ hơn cách điện toán đám mây được ứng dụng trong thực tế.
+-  Củng cố kiến thức thông qua việc tự học và tham khảo tài liệu kỹ thuật.
+-  Tiếp tục hoàn thành các task được giao.
+-  Làm quen thêm với quy trình làm việc trong môi trường doanh nghiệp.
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Kiến thức và kỹ năng đạt được
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+ **Kiến thức và kỹ năng đã học:**
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+-  Hiểu rõ hơn về các ứng dụng thực tế của AWS.
+-  Có kiến thức cơ bản về cách kết hợp nhiều dịch vụ AWS trong một dự án.
+-  Nâng cao khả năng tiếp thu kiến thức từ các sự kiện và buổi chia sẻ chuyên môn.
+-  Cải thiện kỹ năng tự học và nghiên cứu tài liệu kỹ thuật.
+-  Hiểu thêm về quy trình làm việc chuyên nghiệp trong doanh nghiệp.
+-  Biết cách liên hệ kiến thức lý thuyết với các dự án thực tế.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+### Cảm nhận Tuần 3
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+Trong tuần thứ ba, em đã tham gia một buổi meeting và sự kiện tại công ty. Tại đây, em có cơ hội lắng nghe các anh/chị chia sẻ về kiến thức chuyên môn, kinh nghiệm làm việc thực tế và những kỹ năng cần thiết trong lĩnh vực điện toán đám mây.
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+Em cũng được tìm hiểu một số dự án được xây dựng trên nền tảng AWS và cách các dịch vụ đám mây được áp dụng để giải quyết những yêu cầu trong thực tế. Qua đó, em nhận thấy rằng các dịch vụ AWS không hoạt động riêng lẻ mà thường được kết hợp với nhau để tạo thành một hệ thống hoàn chỉnh.
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+Bên cạnh đó, em tiếp tục chủ động tự học, tham khảo thêm các tài liệu liên quan và thực hiện những task được giao. Những hoạt động trong tuần giúp em hiểu rõ hơn về điện toán đám mây, nâng cao khả năng nghiên cứu và từng bước làm quen với quy trình làm việc trong môi trường doanh nghiệp.
