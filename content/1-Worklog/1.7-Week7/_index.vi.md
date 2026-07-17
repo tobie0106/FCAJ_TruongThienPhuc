@@ -6,64 +6,93 @@ chapter: false
 pre: " <b> 1.7. </b> "
 ---
 
-### Mục tiêu Tuần 7
+### 1. Mục tiêu và bối cảnh
 
-- Tiếp tục tự học và thực hành các bài lab trên AWS.
-- Tìm hiểu cách tạo và quản lý IAM User, IAM Policy và IAM Role.
-- Hiểu cách sử dụng IAM để kiểm soát quyền truy cập vào Amazon EC2.
-- Thực hành truy cập EC2 Console tại khu vực AWS được chỉ định.
-- Tìm hiểu cách kiểm soát việc tạo EC2 instance dựa trên tag.
-- Thực hành tạo Restriction Policy để giới hạn quyền sử dụng tài nguyên.
-- Dọn dẹp các tài nguyên AWS sau khi hoàn thành bài lab.
-- Phối hợp cùng các thành viên trong nhóm để thực hiện project.
+Tuần 7 tập trung sâu hơn vào **AWS Identity and Access Management**. Khác với những tuần trước chỉ tìm hiểu khái niệm, tuần này em thực hành tạo IAM User, Policy và Role, sau đó kiểm tra quyền trên Amazon EC2. Phần quan trọng của bài lab là sử dụng điều kiện liên quan đến **tag** để kiểm soát việc tạo hoặc thao tác với EC2 instance.
 
-### Công việc trong Tuần 7
+Mục tiêu của em là không chỉ làm cho thao tác được phép hoạt động mà còn phải kiểm tra trường hợp bị từ chối, từ đó xác nhận policy thực sự thực thi đúng yêu cầu.
+
+### 2. Nhật ký thực hiện
 
 | STT | Công việc | Bắt đầu | Kết thúc |
 |-----|-----------|---------|----------|
-| 1 | Tiếp tục tự học và xem các video hướng dẫn bài lab về AWS | 01/06/2026 | 07/06/2026 |
-| 2 | Thực hành tạo IAM User và kiểm tra thông tin đăng nhập | 01/06/2026 | 07/06/2026 |
-| 3 | Tạo IAM Policy để cấp các quyền cần thiết cho người dùng | 01/06/2026 | 07/06/2026 |
-| 4 | Tạo IAM Role và tìm hiểu cách gán role cho tài nguyên AWS | 01/06/2026 | 07/06/2026 |
-| 5 | Thực hành truy cập Amazon EC2 Console tại khu vực AWS được chỉ định | 01/06/2026 | 07/06/2026 |
-| 6 | Tìm hiểu cách kiểm soát việc tạo EC2 instance bằng điều kiện tag | 01/06/2026 | 07/06/2026 |
-| 7 | Tạo Restriction Policy để giới hạn thao tác không phù hợp trên tài nguyên AWS | 01/06/2026 | 07/06/2026 |
-| 8 | Kiểm tra quyền truy cập và xác nhận policy hoạt động theo yêu cầu | 01/06/2026 | 07/06/2026 |
-| 9 | Dọn dẹp các tài nguyên đã tạo sau khi hoàn thành bài lab | 01/06/2026 | 07/06/2026 |
-| 10 | Trao đổi và phối hợp với các thành viên trong nhóm để thực hiện project | 01/06/2026 | 07/06/2026 |
+| 1 | Tìm hiểu sâu hơn về IAM User, IAM Policy và IAM Role | 01/06/2026 | 07/06/2026 |
+| 2 | Tạo IAM User riêng để kiểm tra quyền truy cập giới hạn | 01/06/2026 | 07/06/2026 |
+| 3 | Đăng nhập bằng IAM User mới và kiểm tra khả năng truy cập AWS Console | 01/06/2026 | 07/06/2026 |
+| 4 | Tạo IAM Policy và phân tích các thành phần `Action`, `Resource`, `Effect` và `Condition` | 01/06/2026 | 07/06/2026 |
+| 5 | Tạo IAM Role và kiểm tra trust relationship | 01/06/2026 | 07/06/2026 |
+| 6 | Truy cập Amazon EC2 trong Region được chỉ định bằng user giới hạn | 01/06/2026 | 07/06/2026 |
+| 7 | Thử thao tác EC2 khi không có tag bắt buộc | 01/06/2026 | 07/06/2026 |
+| 8 | Thử thao tác EC2 với tag sai key hoặc value | 01/06/2026 | 07/06/2026 |
+| 9 | Thử thao tác EC2 với tag hợp lệ và đối chiếu kết quả | 01/06/2026 | 07/06/2026 |
+| 10 | Tạo hoặc gắn Restriction Policy để giới hạn hành động nhạy cảm | 01/06/2026 | 07/06/2026 |
+| 11 | Ghi nhận kết quả `Allow`, `Deny` và thông báo access denied | 01/06/2026 | 07/06/2026 |
+| 12 | Xóa các EC2 instance và tài nguyên không còn cần thiết sau bài lab | 01/06/2026 | 07/06/2026 |
 
-### Kết quả đạt được trong Tuần 7
+### 3. Quy trình kỹ thuật đã thực hiện
 
-- Hoàn thành bài lab tạo IAM User, IAM Policy và IAM Role.
-- Hiểu rõ hơn sự khác nhau giữa IAM User, Policy và Role.
-- Biết cách cấp quyền truy cập vào các dịch vụ AWS thông qua policy.
-- Thực hành truy cập và sử dụng Amazon EC2 Console.
-- Tìm hiểu cách sử dụng tag để hỗ trợ quản lý và kiểm soát tài nguyên EC2.
-- Tạo Restriction Policy để giới hạn một số hành động không phù hợp.
-- Kiểm tra được kết quả cấp quyền và giới hạn quyền truy cập.
-- Hoàn thành việc dọn dẹp các tài nguyên không còn sử dụng.
-- Tham gia trao đổi và thực hiện project cùng các thành viên trong nhóm.
+#### Bước 1: Tạo IAM User giới hạn
 
-### Kiến thức và kỹ năng đạt được
+Em tạo một IAM User dành riêng cho bài lab thay vì sử dụng tài khoản có quyền quản trị. Sau khi tạo thông tin đăng nhập, em đăng xuất khỏi phiên hiện tại và đăng nhập bằng người dùng mới để kiểm tra từ góc nhìn của người dùng bị giới hạn.
 
-**Kiến thức và kỹ năng đã học trong tuần:**
+Cách kiểm tra này quan trọng vì việc xem policy từ tài khoản quản trị không phản ánh chính xác trải nghiệm của người dùng thực tế.
 
-- Biết cách tạo và quản lý IAM User.
-- Hiểu cách IAM Policy định nghĩa các hành động được phép hoặc bị từ chối.
-- Hiểu vai trò của IAM Role trong việc cấp quyền tạm thời cho người dùng hoặc dịch vụ.
-- Biết cách kiểm tra quyền truy cập vào Amazon EC2.
-- Có kiến thức cơ bản về việc sử dụng tag để phân loại và kiểm soát tài nguyên.
-- Biết cách xây dựng Restriction Policy theo yêu cầu của bài lab.
-- Hiểu tầm quan trọng của nguyên tắc cấp quyền tối thiểu trong AWS.
-- Biết cách dọn dẹp tài nguyên để hạn chế phát sinh chi phí.
-- Cải thiện kỹ năng trao đổi và phối hợp khi thực hiện project nhóm.
+#### Bước 2: Phân tích cấu trúc IAM Policy
 
-### Cảm nhận Tuần 7
+Khi tạo policy, em tập trung vào ba thành phần chính:
 
-Trong tuần thứ bảy, em tiếp tục tự học và thực hiện các bài lab tập trung vào AWS Identity and Access Management. Em đã thực hành tạo IAM User, IAM Policy và IAM Role, từ đó hiểu rõ hơn vai trò của từng thành phần trong việc quản lý danh tính và quyền truy cập trên AWS.
+- **Action:** hành động AWS API nào được phép hoặc bị từ chối.
+- **Resource:** tài nguyên nào nằm trong phạm vi của policy.
+- **Condition:** điều kiện bổ sung, trong bài lab là thông tin tag của tài nguyên hoặc request.
 
-Em cũng thực hành truy cập Amazon EC2 Console và tìm hiểu cách kiểm soát việc tạo EC2 instance bằng các điều kiện liên quan đến tag. Nội dung này giúp em nhận thấy tag không chỉ được sử dụng để phân loại tài nguyên mà còn có thể được kết hợp với IAM Policy để quản lý quyền truy cập.
+Em hiểu rằng policy có thể cho phép một nhóm hành động nhưng vẫn từ chối request nếu điều kiện tag không thỏa mãn. Đây là cách kiểm soát chi tiết hơn so với việc chỉ cấp quyền theo tên dịch vụ.
 
-Bên cạnh đó, em đã tạo Restriction Policy, kiểm tra các quyền được cấp và dọn dẹp tài nguyên sau khi hoàn thành bài lab. Việc dọn dẹp tài nguyên giúp em hiểu thêm về trách nhiệm quản lý chi phí khi sử dụng dịch vụ đám mây.
+#### Bước 3: Tạo và kiểm tra IAM Role
 
-Ngoài các bài lab cá nhân, em còn trao đổi và phối hợp cùng các thành viên trong nhóm để thực hiện project. Qua đó, em cải thiện khả năng làm việc nhóm và biết cách kết hợp kiến thức đã học vào nội dung của dự án.
+Em tạo IAM Role theo yêu cầu và xem lại trust relationship để xác định đối tượng nào có thể sử dụng role. Sau đó, em kiểm tra các policy được gắn với role và so sánh role với IAM User.
+
+IAM User có thông tin đăng nhập riêng và thường đại diện cho một người dùng, còn role được assume để nhận credential tạm thời. Điều này giúp giảm nhu cầu sử dụng access key dài hạn.
+
+#### Bước 4: Kiểm tra EC2 với điều kiện tag
+
+Em truy cập EC2 Console trong Region được chỉ định và thực hiện các kịch bản kiểm tra:
+
+1. Thao tác khi chưa cung cấp tag bắt buộc.
+2. Thao tác với tag không đúng key hoặc value theo yêu cầu.
+3. Thao tác với tag phù hợp.
+4. Kiểm tra khả năng xem, tạo hoặc quản lý instance sau khi policy được áp dụng.
+
+Kết quả allow hoặc deny được dùng để đối chiếu với logic của policy. Khi một thao tác bị từ chối, em xem thông báo quyền truy cập và quay lại kiểm tra action, resource và condition thay vì cấp thêm quyền rộng ngay lập tức.
+
+#### Bước 5: Áp dụng Restriction Policy
+
+Em tạo hoặc gắn policy nhằm giới hạn những thao tác không được phép trong môi trường lab. Phần này giúp em nhận thấy `Deny` tường minh có mức ưu tiên cao và có thể chặn thao tác ngay cả khi một policy khác cấp `Allow`.
+
+Sau khi hoàn thành kiểm thử, em xóa các instance và tài nguyên không còn cần thiết để tránh phát sinh chi phí.
+
+### 4. Bảng kiểm thử quyền
+
+| Kịch bản | Kết quả mong đợi | Ý nghĩa |
+|---------|------------------|--------|
+| IAM User đăng nhập và mở EC2 Console | Chỉ thấy hoặc dùng chức năng được cấp | Xác nhận quyền cơ bản |
+| Request không có tag bắt buộc | Bị từ chối | Condition đang được thực thi |
+| Request có tag không hợp lệ | Bị từ chối | Không thể vượt policy bằng tag sai |
+| Request có tag hợp lệ | Được phép trong phạm vi policy | Xác nhận trường hợp đúng |
+| Thử hành động nằm trong Restriction Policy | Bị từ chối | Xác nhận giới hạn bảo mật |
+
+### 5. Kết quả và phần việc cá nhân
+
+- Tạo IAM User phục vụ kiểm thử quyền giới hạn.
+- Tạo và đọc cấu trúc của IAM Policy.
+- Tạo IAM Role và hiểu trust relationship.
+- Kiểm tra quyền truy cập EC2 bằng chính người dùng bị giới hạn.
+- Thực hiện nhiều kịch bản liên quan đến tag thay vì chỉ kiểm tra trường hợp thành công.
+- Hiểu rõ hơn tác động của `Allow`, `Deny` và `Condition`.
+- Dọn dẹp tài nguyên sau bài lab.
+- Trao đổi với nhóm về cách áp dụng phân quyền vào project.
+
+### 6. Bài học rút ra
+
+Tuần 7 giúp em thay đổi cách nhìn về IAM. Phân quyền không nên được kiểm tra bằng câu hỏi “người dùng có làm được không” mà cần kiểm tra cả “người dùng có bị chặn đúng trong trường hợp không hợp lệ hay không”. Một policy tốt phải đáp ứng đồng thời hai mục tiêu: cho phép công việc cần thiết và ngăn các thao tác ngoài phạm vi.
+
+Việc sử dụng tag trong condition cũng cho em thấy tag không chỉ phục vụ tìm kiếm hoặc quản lý chi phí mà còn có thể trở thành một phần của cơ chế kiểm soát truy cập.

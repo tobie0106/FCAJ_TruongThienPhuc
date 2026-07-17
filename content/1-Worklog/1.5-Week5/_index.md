@@ -6,60 +6,98 @@ chapter: false
 pre: " <b> 1.5. </b> "
 ---
 
-### Week 5 Objectives
+### 1. Objectives and Context
 
-- Continue learning about AWS through practical lab activities.
-- Understand how AWS Storage Gateway connects on-premises environments with AWS storage services.
-- Learn how to create and configure file shares.
-- Practice creating and managing an Amazon S3 bucket.
-- Upload data and configure static website hosting on Amazon S3.
-- Understand Amazon S3 public access settings.
-- Test the website after completing the configuration.
+The main focus of Week 5 was to build a hybrid storage flow between an on-premises environment and AWS through **AWS Storage Gateway**, and to practice hosting a static website with **Amazon S3**. I needed to understand how data created from an on-premises client could pass through a file share and become an object in S3.
 
-### Tasks This Week
+I also practiced configuring public access for a static website. This activity helped me distinguish between making an entire bucket public and allowing read access only to the objects required by the website.
 
-| No. | Task | Start | End |
-|-----|------|-------|-----|
-| 1 | Visit the company office and continue self-study through AWS lectures on YouTube | 18/05/2026 | 24/05/2026 |
-| 2 | Create and configure an AWS Storage Gateway | 18/05/2026 | 24/05/2026 |
-| 3 | Create file shares and review their configuration | 18/05/2026 | 24/05/2026 |
-| 4 | Create an Amazon S3 bucket for storing website data | 18/05/2026 | 24/05/2026 |
-| 5 | Upload data and website files to the S3 bucket | 18/05/2026 | 24/05/2026 |
-| 6 | Enable the static website hosting feature on Amazon S3 | 18/05/2026 | 24/05/2026 |
-| 7 | Configure the S3 Block Public Access settings | 18/05/2026 | 24/05/2026 |
-| 8 | Configure public access permissions for the required objects | 18/05/2026 | 24/05/2026 |
-| 9 | Test the static website and verify that it operates correctly | 18/05/2026 | 24/05/2026 |
+### 2. Worklog
 
-### Week 5 Achievements
+| No. | Task | Start date | End date |
+|-----|------|------------|----------|
+| 1 | Studied the architecture and data flow of AWS Storage Gateway | 18/05/2026 | 24/05/2026 |
+| 2 | Prepared the gateway machine, Amazon S3 bucket, and client machine for the lab | 18/05/2026 | 24/05/2026 |
+| 3 | Created and activated AWS Storage Gateway through the AWS Console | 18/05/2026 | 24/05/2026 |
+| 4 | Checked the gateway status and network connectivity | 18/05/2026 | 24/05/2026 |
+| 5 | Created a file share connected to an Amazon S3 bucket | 18/05/2026 | 24/05/2026 |
+| 6 | Configured access permissions and approved client information | 18/05/2026 | 24/05/2026 |
+| 7 | Mounted the file share on the on-premises client and copied a test file | 18/05/2026 | 24/05/2026 |
+| 8 | Confirmed that the test file appeared as an object in the S3 bucket | 18/05/2026 | 24/05/2026 |
+| 9 | Created an S3 bucket and uploaded static website files | 18/05/2026 | 24/05/2026 |
+| 10 | Enabled Static website hosting and configured object read permissions | 18/05/2026 | 24/05/2026 |
+| 11 | Tested the website endpoint and reviewed Block Public Access and the bucket policy | 18/05/2026 | 24/05/2026 |
+| 12 | Documented the results, difficulties, and validation process | 18/05/2026 | 24/05/2026 |
 
-- Completed the AWS Storage Gateway creation lab.
-- Learned how to create and configure file shares.
-- Created an Amazon S3 bucket and uploaded website data successfully.
-- Enabled the static website hosting feature on Amazon S3.
-- Practiced configuring S3 Block Public Access settings.
-- Learned how object permissions affect public access to website files.
-- Tested the website and confirmed that the uploaded content could be accessed.
-- Improved my understanding through independent study and AWS video lectures.
+### 3. Technical Process
 
-### Knowledge and Skills Gained
+#### Step 1: Prepare the Storage Gateway flow
 
-**Knowledge and skills developed during the week:**
+Before creating resources, I identified the main components of the lab:
 
-- Basic understanding of AWS Storage Gateway and its purpose.
-- Knowledge of how file shares connect local environments to cloud storage.
-- Ability to create and manage an Amazon S3 bucket.
-- Ability to upload and organize files in Amazon S3.
-- Understanding of static website hosting on Amazon S3.
-- Basic knowledge of S3 bucket permissions and public access settings.
-- Ability to test and validate a website hosted on Amazon S3.
-- Improved self-learning and practical lab skills.
+- A gateway acting as the bridge between the on-premises environment and AWS.
+- A file share that the client machine could access through a file protocol.
+- An Amazon S3 bucket used as the backend storage location.
+- IAM permissions that allowed Storage Gateway to access the required bucket resources.
 
-### Week 5 Reflection
+Defining the data path in advance helped me understand the purpose of each step instead of only following instructions in sequence.
 
-During the fifth week, I visited the company office and continued learning through AWS lectures and practical lab activities. The main topics of the week were AWS Storage Gateway, file shares, and Amazon S3.
+#### Step 2: Create and activate the gateway
 
-I practiced creating a Storage Gateway and configuring file shares. These activities helped me understand how an on-premises environment can connect to cloud storage services and access files stored on AWS.
+I created the Storage Gateway according to the lab procedure, provided the required network information, and completed activation through the AWS Console. After activation, I checked the gateway status to confirm that it could communicate with AWS.
 
-I also created an Amazon S3 bucket, uploaded website files, and enabled the static website hosting feature. During this process, I learned how S3 public access settings and object permissions affect whether website content can be accessed from the internet.
+An important point was that the gateway needed stable network connectivity, access to the required endpoints, and the correct storage configuration. If the gateway was not operational, file-share creation and synchronization could not be validated correctly.
 
-After completing the configuration, I tested the website to confirm that the files had been uploaded correctly and that the static website operated as expected. These labs helped me improve my practical AWS skills and better understand the relationship between cloud storage, access permissions, and website hosting.
+#### Step 3: Create the file share backed by S3
+
+After the gateway became ready, I created a file share and selected the S3 bucket used as the backend. I reviewed access permissions, the share path, and the client information required for mounting.
+
+From the on-premises client, I mounted the file share using the generated connection details. I then created or copied a test file into the mounted directory and opened the S3 Console to verify that a corresponding object appeared in the bucket. This test demonstrated that data from the client passed through the gateway and was stored in AWS.
+
+#### Step 4: Host a static website on S3
+
+I created an S3 bucket for website content and uploaded the files using the required directory structure. I enabled **Static website hosting**, selected the index document, and reviewed the website endpoint.
+
+For access control, I considered two separate layers:
+
+- The bucket-level **Block Public Access** settings.
+- The bucket policy or object permissions required for read access.
+
+Disabling public-access blocking alone was not sufficient. The website worked only when the required objects could be read through the correct policy, while write, delete, and administrative permissions remained protected.
+
+### 4. Layered Validation
+
+For Storage Gateway, I validated:
+
+1. Gateway status in the AWS Console.
+2. Network connectivity between the client and gateway.
+3. File-share mount information.
+4. Permissions to the S3 bucket.
+5. Object creation after copying a test file.
+
+For the S3 website, I validated:
+
+1. The name and location of the index file.
+2. Static website hosting configuration.
+3. Block Public Access settings.
+4. Bucket policy and object read permission.
+5. The S3 website endpoint.
+
+This approach helped me distinguish storage, permission, and file-path issues.
+
+### 5. Results and My Contribution
+
+- Created and activated Storage Gateway according to the lab.
+- Created a file share connected to Amazon S3.
+- Mounted the file share from an on-premises client and performed a test-file operation.
+- Confirmed that data written through the file share appeared in the S3 bucket.
+- Created an S3 bucket and uploaded static website content.
+- Enabled static website hosting and tested the website endpoint.
+- Improved my understanding of the difference between Block Public Access and object read permissions.
+- Documented a validation sequence for future hybrid-storage labs.
+
+### 6. Lessons Learned
+
+Week 5 showed me that Storage Gateway is not simply another storage service. It is a bridge between familiar file-based access in an on-premises environment and the object-storage model of Amazon S3. Testing with an actual file made the data flow much clearer than reviewing the architecture only in theory.
+
+The static website activity also improved my understanding of S3 security. Public website access should be configured carefully; broad bucket permissions are unnecessary when users only need read access to a defined set of website objects.

@@ -6,64 +6,93 @@ chapter: false
 pre: " <b> 1.7. </b> "
 ---
 
-### Week 7 Objectives
+### 1. Objectives and Context
 
-- Continue self-learning and completing practical AWS labs.
-- Learn how to create and manage IAM Users, IAM Policies, and IAM Roles.
-- Understand how IAM controls access to Amazon EC2.
-- Practice accessing the EC2 Console in a specified AWS Region.
-- Learn how tags can be used to control the creation of EC2 instances.
-- Practice creating a Restriction Policy to limit access to AWS resources.
-- Clean up AWS resources after completing the labs.
-- Coordinate with group members to work on the project.
+Week 7 focused more deeply on **AWS Identity and Access Management**. Instead of reviewing only IAM concepts, I created an IAM User, Policy, and Role and then validated permissions in Amazon EC2. An important part of the lab was using **tag-based conditions** to control the creation or management of EC2 instances.
 
-### Tasks This Week
+My objective was not only to confirm that an allowed operation worked, but also to test denied scenarios and verify that the policy enforced the intended restrictions.
 
-| No. | Task | Start | End |
-|-----|------|-------|-----|
-| 1 | Continue self-study and watch AWS lab tutorial videos | 01/06/2026 | 07/06/2026 |
-| 2 | Create an IAM User and review the login information | 01/06/2026 | 07/06/2026 |
-| 3 | Create an IAM Policy to grant the required permissions | 01/06/2026 | 07/06/2026 |
-| 4 | Create an IAM Role and learn how roles are assigned to AWS resources | 01/06/2026 | 07/06/2026 |
-| 5 | Practice accessing the Amazon EC2 Console in a specified AWS Region | 01/06/2026 | 07/06/2026 |
-| 6 | Learn how to control the creation of EC2 instances by using tag conditions | 01/06/2026 | 07/06/2026 |
-| 7 | Create a Restriction Policy to prevent unauthorized actions on AWS resources | 01/06/2026 | 07/06/2026 |
-| 8 | Test the configured permissions and confirm that the policies work as expected | 01/06/2026 | 07/06/2026 |
-| 9 | Clean up the resources created during the labs | 01/06/2026 | 07/06/2026 |
-| 10 | Discuss and coordinate with group members to work on the project | 01/06/2026 | 07/06/2026 |
+### 2. Worklog
 
-### Week 7 Achievements
+| No. | Task | Start date | End date |
+|-----|------|------------|----------|
+| 1 | Studied IAM Users, IAM Policies, and IAM Roles in greater detail | 01/06/2026 | 07/06/2026 |
+| 2 | Created a separate IAM User for restricted-access testing | 01/06/2026 | 07/06/2026 |
+| 3 | Signed in as the new IAM User and tested AWS Console access | 01/06/2026 | 07/06/2026 |
+| 4 | Created an IAM Policy and reviewed `Action`, `Resource`, `Effect`, and `Condition` | 01/06/2026 | 07/06/2026 |
+| 5 | Created an IAM Role and reviewed its trust relationship | 01/06/2026 | 07/06/2026 |
+| 6 | Accessed Amazon EC2 in the specified Region as the restricted user | 01/06/2026 | 07/06/2026 |
+| 7 | Tested an EC2 operation without the required tag | 01/06/2026 | 07/06/2026 |
+| 8 | Tested an EC2 operation with an incorrect tag key or value | 01/06/2026 | 07/06/2026 |
+| 9 | Tested an EC2 operation with the valid tag and compared the result | 01/06/2026 | 07/06/2026 |
+| 10 | Created or attached a Restriction Policy for sensitive operations | 01/06/2026 | 07/06/2026 |
+| 11 | Recorded `Allow`, `Deny`, and access-denied results | 01/06/2026 | 07/06/2026 |
+| 12 | Removed EC2 instances and resources that were no longer required | 01/06/2026 | 07/06/2026 |
 
-- Completed the labs for creating an IAM User, IAM Policy, and IAM Role.
-- Gained a clearer understanding of the differences between IAM Users, Policies, and Roles.
-- Learned how policies are used to grant access to AWS services.
-- Practiced accessing and using the Amazon EC2 Console.
-- Learned how tags can support the management and control of EC2 resources.
-- Created a Restriction Policy to limit unauthorized actions.
-- Tested the configured permissions and access restrictions.
-- Removed unused resources after completing the labs.
-- Participated in project discussions and worked with the other group members.
+### 3. Technical Process
 
-### Knowledge and Skills Gained
+#### Step 1: Create a limited IAM User
 
-**Knowledge and skills developed during the week:**
+I created an IAM User specifically for the lab instead of using an administrative account. After generating the sign-in information, I signed out and logged in as the new user to test permissions from the perspective of the restricted identity.
 
-- Ability to create and manage IAM Users.
-- Understanding of how IAM Policies define allowed and denied actions.
-- Understanding of how IAM Roles provide temporary permissions to users or AWS services.
-- Ability to review and test access to Amazon EC2.
-- Basic knowledge of using tags to organize and control AWS resources.
-- Ability to create a Restriction Policy according to the lab requirements.
-- Better understanding of the principle of least privilege in AWS.
-- Ability to clean up resources to prevent unnecessary costs.
-- Improved communication and coordination skills while working on a group project.
+This was important because reviewing a policy from an administrator account does not reproduce the experience of the real user subject to the policy.
 
-### Week 7 Reflection
+#### Step 2: Analyze the IAM Policy structure
 
-During the seventh week, I continued self-learning and completed practical labs focused on AWS Identity and Access Management. I practiced creating IAM Users, IAM Policies, and IAM Roles, which helped me better understand the purpose of each component in managing identities and access permissions on AWS.
+When creating the policy, I focused on three main elements:
 
-I also practiced accessing the Amazon EC2 Console and learned how tag conditions can be used to control the creation of EC2 instances. This activity helped me understand that tags are not only used to organize resources but can also be combined with IAM Policies to manage access.
+- **Action:** which AWS API operations are allowed or denied.
+- **Resource:** which resources are covered by the policy.
+- **Condition:** additional requirements, represented in this lab by request or resource tags.
 
-In addition, I created a Restriction Policy, tested the configured permissions, and cleaned up the resources after completing the labs. The resource cleanup activity helped me understand the importance of managing cloud resources carefully to avoid unnecessary costs.
+I learned that a policy can allow a group of operations while still rejecting a request when the required tag condition is not satisfied. This provides more detailed control than granting access only at the service level.
 
-Besides the individual labs, I discussed the project with the other group members and participated in the project activities. This helped me improve my teamwork skills and apply the knowledge gained from the AWS labs to the group project.
+#### Step 3: Create and review the IAM Role
+
+I created an IAM Role and reviewed its trust relationship to identify which principal could assume it. I then reviewed the policies attached to the role and compared the role with an IAM User.
+
+An IAM User has its own sign-in identity and commonly represents a person, while a role is assumed to receive temporary credentials. This reduces the need for long-lived access keys.
+
+#### Step 4: Test EC2 operations with tag conditions
+
+I opened the EC2 Console in the assigned Region and performed several validation scenarios:
+
+1. Submit the operation without the required tag.
+2. Submit it with an incorrect tag key or value.
+3. Submit it with the valid tag.
+4. Review the ability to view, create, or manage instances after the policy was applied.
+
+I compared the allow or deny result with the policy logic. When an action was denied, I reviewed the access message and checked the action, resource, and condition instead of immediately granting broader permissions.
+
+#### Step 5: Apply a Restriction Policy
+
+I created or attached a policy that restricted operations that were not permitted in the lab environment. This clarified the effect of an explicit `Deny`, which can block an operation even when another policy contains an `Allow`.
+
+After validation, I deleted the instances and other resources that were no longer required to avoid unnecessary cost.
+
+### 4. Permission Test Matrix
+
+| Scenario | Expected result | Purpose |
+|----------|-----------------|---------|
+| IAM User signs in and opens EC2 | Only approved functions are visible or usable | Validate basic access |
+| Request does not include the required tag | Denied | Confirm that the condition is enforced |
+| Request includes an invalid tag | Denied | Confirm that an incorrect tag cannot bypass the policy |
+| Request includes the valid tag | Allowed within the policy scope | Validate the correct scenario |
+| User attempts an operation covered by the Restriction Policy | Denied | Validate the security restriction |
+
+### 5. Results and My Contribution
+
+- Created an IAM User for restricted-access testing.
+- Created and reviewed the structure of an IAM Policy.
+- Created an IAM Role and examined its trust relationship.
+- Tested EC2 access by signing in as the restricted user.
+- Performed multiple tag-related scenarios instead of validating only a successful request.
+- Improved my understanding of `Allow`, `Deny`, and `Condition` behavior.
+- Cleaned up resources after the lab.
+- Discussed with the group how authorization could be applied to the project.
+
+### 6. Lessons Learned
+
+Week 7 changed how I evaluate IAM permissions. Authorization should not be tested only by asking whether a user can complete a task. It should also confirm that the user is correctly blocked in invalid scenarios. A good policy must allow the required work while preventing operations outside the intended scope.
+
+Tag-based conditions also showed me that tags are not used only for organization or cost allocation; they can become part of an access-control strategy.

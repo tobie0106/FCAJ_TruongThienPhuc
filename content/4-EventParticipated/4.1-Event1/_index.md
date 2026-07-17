@@ -248,3 +248,4 @@ Through discussions and networking activities, I was able to hear different pers
 - Organized processes improve productivity and collaboration.
 - Technology communities provide valuable opportunities for learning and networking.
 
+![alt text](1778402343994.jpg)

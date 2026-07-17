@@ -248,3 +248,4 @@ Thông qua các hoạt động trao đổi và kết nối, em có cơ hội ti�
 - Quy trình có tổ chức giúp tăng hiệu suất và khả năng phối hợp.
 - Cộng đồng công nghệ mang lại nhiều cơ hội học tập và kết nối.
 
+![alt text](1778402343994-1.jpg)

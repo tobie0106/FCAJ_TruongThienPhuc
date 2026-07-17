@@ -6,53 +6,85 @@ chapter: false
 pre: " <b> 1.4. </b> "
 ---
 
-### Week 4 Objectives
+### 1. Objectives and Context
 
-- Continue learning and practicing fundamental AWS services.
-- Improve my understanding of Amazon EC2, Amazon S3, and AWS IAM.
-- Practice deploying a basic application on Amazon EC2.
-- Learn how to configure appropriate access permissions for AWS resources.
-- Understand the basic principles of cloud storage management and data security.
-- Complete the assigned system configuration and validation tasks.
+During the fourth week, I moved from general AWS concepts to hands-on work with three foundational services: **Amazon EC2, Amazon S3, and AWS Identity and Access Management (IAM)**. The main objective was to understand how these services cooperate in a simple system: EC2 provides compute capacity for an application, S3 stores data or static files, and IAM controls identities and permissions.
 
-### Tasks This Week
+The practical work required me to create resources, validate their status, deploy a basic application on EC2, and review the permissions required for users or services to access AWS resources without receiving unnecessary privileges.
 
-| No. | Task | Start | End |
-|-----|------|-------|-----|
-| 1 | Continue learning about Amazon EC2, Amazon S3, and AWS IAM | 11/05/2026 | 17/05/2026 |
-| 2 | Practice creating and configuring basic resources on AWS | 11/05/2026 | 17/05/2026 |
-| 3 | Deploy a basic application on an Amazon EC2 instance | 11/05/2026 | 17/05/2026 |
-| 4 | Configure appropriate access permissions for the application and AWS resources | 11/05/2026 | 17/05/2026 |
-| 5 | Learn about cloud storage management and data security | 11/05/2026 | 17/05/2026 |
-| 6 | Complete assigned tasks related to system configuration and validation | 11/05/2026 | 17/05/2026 |
-| 7 | Study independently at home and watch additional AWS lectures on YouTube | 11/05/2026 | 17/05/2026 |
+### 2. Worklog
 
-### Week 4 Achievements
+| No. | Task | Start date | End date |
+|-----|------|------------|----------|
+| 1 | Reviewed Amazon EC2, Amazon S3, and AWS IAM through documents and tutorial videos | 11/05/2026 | 17/05/2026 |
+| 2 | Created and configured an Amazon EC2 instance according to the lab requirements | 11/05/2026 | 17/05/2026 |
+| 3 | Checked the instance's `Running` state, status checks, VPC, subnet, and Security Group | 11/05/2026 | 17/05/2026 |
+| 4 | Connected to the server and deployed a basic application on Amazon EC2 | 11/05/2026 | 17/05/2026 |
+| 5 | Tested application access through the EC2 instance endpoint | 11/05/2026 | 17/05/2026 |
+| 6 | Reviewed Security Group inbound rules and retained only the required ports | 11/05/2026 | 17/05/2026 |
+| 7 | Studied the bucket and object structure used by Amazon S3 | 11/05/2026 | 17/05/2026 |
+| 8 | Distinguished between IAM Users, IAM Policies, and IAM Roles | 11/05/2026 | 17/05/2026 |
+| 9 | Documented the process for validating resources, applications, networking, and permissions | 11/05/2026 | 17/05/2026 |
+| 10 | Continued self-study through videos about EC2, S3, and IAM | 11/05/2026 | 17/05/2026 |
 
--  Improved my understanding of the basic functions of Amazon EC2, Amazon S3, and AWS IAM.
--  Learned how to create and configure a basic EC2 instance.
--  Practiced deploying a simple application on Amazon EC2.
--  Understood the role of IAM in managing users and access permissions.
--  Gained additional knowledge about data storage and security on AWS.
--  Completed the assigned system configuration and validation tasks.
--  Strengthened my knowledge through independent study and video tutorials.
+### 3. Technical Process
 
-### Knowledge and Skills Gained
+#### Step 1: Prepare and create the EC2 instance
 
- **Knowledge and skills developed during the week:**
+I opened the Amazon EC2 Console in the Region used for the lab, selected a configuration appropriate for the exercise, and launched an instance. During the creation process, I reviewed:
 
--  Basic knowledge of Amazon EC2 and virtual servers on AWS.
--  Understanding of how Amazon S3 is used to store data.
--  Understanding of the role of AWS IAM in access control.
--  Ability to deploy a basic application on an EC2 instance.
--  Ability to review the configuration and operation of AWS resources.
--  Improved self-learning skills through technical documents and video tutorials.
--  Greater awareness of data security in cloud environments.
+- The resource name for easier identification.
+- The Amazon Machine Image and instance configuration required by the lab.
+- The VPC, subnet, and network addressing assigned to the instance.
+- The Security Group that controlled inbound traffic.
+- The connection method required to configure the application.
 
-### Week 4 Reflection
+After launching the instance, I waited until it reached the `Running` state and reviewed the status checks before continuing. This helped me understand that an instance appearing in the Console does not always mean it is fully ready; both the system and instance checks should be considered.
 
-During the fourth week, I continued learning and practicing with common AWS services such as Amazon EC2, Amazon S3, and AWS IAM. Through the practical activities, I gained a clearer understanding of the role of each service in building and operating a cloud-based system.
+#### Step 2: Connect and deploy the application
 
-I practiced deploying a basic application on Amazon EC2 and learned how to configure appropriate access permissions. This activity helped me realize that deploying an application involves not only configuring a server but also carefully managing permissions and security.
+After the instance became ready, I connected to the server using the method provided by the lab. I updated the environment, installed the components required by the application, transferred the application files, and started the service.
 
-In addition, I learned more about managing storage and protecting data on AWS. Studying independently at home and watching AWS lectures on YouTube helped me strengthen my knowledge and better understand the steps required to configure AWS resources.
+I then used the EC2 access endpoint to verify the deployment. When validating access, I reviewed the application process, the application port, the Security Group inbound rules, and the address used for testing. This made the relationship between operating-system configuration and AWS network configuration much clearer.
+
+#### Step 3: Review the Security Group
+
+I reviewed the inbound rules instead of allowing all traffic. Administrative access should be limited to the necessary source, while the application port should be opened only when required. This activity connected network configuration with the **principle of least privilege**, which applies not only to IAM but also to network access.
+
+#### Step 4: Review S3 and IAM
+
+For Amazon S3, I reviewed the bucket and object structure and how files are stored. For IAM, I distinguished between:
+
+- **IAM User:** represents a person or account that needs to sign in.
+- **IAM Policy:** defines which actions are allowed or denied on which resources.
+- **IAM Role:** provides temporary permissions to users, applications, or AWS services.
+
+I also learned why assigning a role to a service is normally safer than storing long-lived access keys in source code or on a server.
+
+### 4. Validation and Technical Considerations
+
+During this week, I focused on several conditions that can prevent a deployment from working correctly:
+
+- Attempting to connect before the EC2 status checks are complete.
+- Opening the wrong application port or allowing an unnecessarily broad source range.
+- Uploading the application without starting its service.
+- Using the wrong endpoint or confusing private and public addresses.
+- Granting broader IAM permissions than the task requires.
+
+Reviewing the deployment layer by layer — resource status, operating system, application, networking, and permissions — gave me a more systematic troubleshooting approach.
+
+### 5. Results and My Contribution
+
+- Created and validated an EC2 instance for the practical exercise.
+- Completed the main steps required to deploy a basic application.
+- Verified application access through the appropriate network configuration.
+- Reviewed the Security Group and the reason for opening only required ports.
+- Strengthened my understanding of buckets, objects, and data storage in Amazon S3.
+- Distinguished more clearly between IAM Users, Policies, and Roles.
+- Documented a validation process that can be reused in more complex labs.
+
+### 6. Lessons Learned
+
+Week 4 showed me that cloud deployment involves more than launching a server. A working system requires coordination between compute resources, the operating system, the application, networking, and permissions. If one layer is configured incorrectly, users may not be able to access the application even though the instance is running.
+
+I also gained a stronger awareness of security during the initial configuration stage. Security Groups and IAM permissions should match the real requirement instead of being made unnecessarily broad just to complete a lab quickly. This became an important foundation for the Storage Gateway, CloudFront, and IAM policy activities in the following weeks.

@@ -304,3 +304,5 @@ Khi xây dựng các tính năng có sử dụng AI, cần lựa chọn cấu h�
 - Phạm vi nhỏ và rõ ràng giúp đội nhóm tạo prototype nhanh hơn.
 - Các quyết định kỹ thuật cần cân bằng giữa sáng tạo và độ tin cậy.
 - Học hỏi từ cộng đồng giúp mở rộng kiến thức và góc nhìn nghề nghiệp.
+
+![alt text](f24d05d9-3730-4451-a152-d7313fc88c4a-1.jpg)

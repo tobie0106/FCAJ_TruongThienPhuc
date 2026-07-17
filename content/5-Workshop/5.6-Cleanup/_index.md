@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.6. </b> "
 ---
 
-### Workshop summary
+#### Workshop summary
 
 Congratulations, you have completed the TaskManager workshop. In this workshop, you validated:
 
@@ -18,23 +18,42 @@ Congratulations, you have completed the TaskManager workshop. In this workshop, 
 - DynamoDB tables, Global Secondary Index, and PITR.
 - CloudWatch log groups for the Lambda backend.
 
-### Clean up resources
+#### Clean up resources
 
 If you no longer need the TaskManager environment, clean up resources to avoid additional cost.
 
 1. Delete frontend objects in the `taskmanager-frontend-dev-*` S3 bucket.
+
+  ![alt text](image-1.png)
+
 2. Delete the `TaskManagerAPI-dev` AppSync API.
+
+![alt text](image-2.png)
+
 3. Delete Lambda functions `userManager-dev`, `boardManager-dev`, `taskProcessor-dev`, and `streamProcessor-dev`.
+
+![alt text](image-3.png)
+
 4. Delete `TaskManager-*` DynamoDB tables if the data is no longer needed.
+
+![alt text](image-4.png)
+
 5. Delete the `taskmanager-users-dev` Cognito User Pool.
-6. Delete CloudWatch log groups `/aws/lambda/*Manager-dev`, `/aws/lambda/taskProcessor-dev`, and `/aws/lambda/streamProcessor-dev`.
+
+![alt text](image-5.png)
+
+6. Delete CloudWatch log groups `/aws/lambda/*Manager-dev`, `/aws/lambda/taskProcessor-dev`, and `/aws/lambda/streamProcessor-dev` if audit logs are no longer needed.
+
+![alt text](image-6.png)
+
 7. Delete IAM roles or policies created only for this project if they are no longer used.
+
+![alt text](image-7.png)
 
 {{% notice warning %}}
 Before deleting DynamoDB tables or the Cognito User Pool, make sure the data is no longer required. PITR only helps within the configured recovery window when restore is handled correctly.
 {{% /notice %}}
 
-### Conclusion
+#### Conclusion
 
 TaskManager is a complete example of a serverless application on AWS: static frontend hosting, managed authentication, GraphQL API, Lambda compute, DynamoDB database, and CloudWatch observability.
-

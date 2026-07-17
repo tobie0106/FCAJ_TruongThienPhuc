@@ -1,39 +1,59 @@
 ---
 title : "Dọn dẹp tài nguyên"
-date : 2024-01-01
+date : 2026-07-09
 weight : 6
 chapter : false
 pre : " <b> 5.6. </b> "
 ---
 
-### Tổng kết workshop
+#### Tổng kết workshop
 
-Chúc mừng, bạn đã hoàn thành workshop TaskManager. Trong workshop này, bạn đã kiểm tra:
+Chúc mừng bạn đã hoàn thành workshop TaskManager. Trong workshop này, bạn đã kiểm tra:
 
-- Bảng điều khiển IAM và các khuyến nghị bảo mật cơ bản.
-- S3 bucket chứa thư mục build của frontend.
+- IAM dashboard và các khuyến nghị bảo mật cơ bản.
+- S3 bucket chứa frontend build output.
 - Cognito User Pool `taskmanager-users-dev`.
 - AppSync GraphQL API `TaskManagerAPI-dev`.
-- Các hàm Lambda xử lý logic backend.
-- Các bảng DynamoDB, Global Secondary Index và PITR.
-- Các CloudWatch log group của hệ thống backend Lambda.
+- Lambda functions xử lý backend.
+- DynamoDB tables, Global Secondary Index và PITR.
+- CloudWatch log groups cho Lambda backend.
 
-### Dọn dẹp tài nguyên
+#### Dọn dẹp tài nguyên
 
-Nếu không còn sử dụng môi trường TaskManager, hãy dọn dẹp các tài nguyên để tránh phát sinh thêm chi phí.
+Nếu không còn sử dụng môi trường TaskManager, hãy dọn tài nguyên để tránh phát sinh chi phí.
 
-1. Xóa các tệp frontend trong S3 bucket `taskmanager-frontend-dev-*`.
+1. Xóa frontend objects trong S3 bucket `taskmanager-frontend-dev-*`.
+
+![alt text](image-1.png)
+
 2. Xóa AppSync API `TaskManagerAPI-dev`.
-3. Xóa các hàm Lambda `userManager-dev`, `boardManager-dev`, `taskProcessor-dev` và `streamProcessor-dev`.
-4. Xóa các bảng DynamoDB có tên `TaskManager-*` nếu dữ liệu không còn cần thiết.
+
+![alt text](image-2.png)
+
+3. Xóa Lambda functions `userManager-dev`, `boardManager-dev`, `taskProcessor-dev`, `streamProcessor-dev`.
+
+![alt text](image-3.png)
+
+4. Xóa DynamoDB tables `TaskManager-*` nếu không cần giữ dữ liệu.
+
+![alt text](image-4.png)
+
 5. Xóa Cognito User Pool `taskmanager-users-dev`.
-6. Xóa các CloudWatch log group `/aws/lambda/*Manager-dev`, `/aws/lambda/taskProcessor-dev` và `/aws/lambda/streamProcessor-dev`.
-7. Xóa các IAM role hoặc policy chỉ được tạo cho dự án này nếu chúng không còn được sử dụng.
+
+![alt text](image-5.png)
+
+6. Xóa CloudWatch log groups `/aws/lambda/*Manager-dev`, `/aws/lambda/taskProcessor-dev` và `/aws/lambda/streamProcessor-dev` nếu không cần audit log.
+
+![alt text](image-6.png)
+
+7. Xóa IAM roles/policies được tạo riêng cho project nếu không còn dùng.
+
+![alt text](image-7.png)
 
 {{% notice warning %}}
-Trước khi xóa các bảng DynamoDB hoặc Cognito User Pool, hãy đảm bảo rằng dữ liệu không còn cần thiết. PITR chỉ hỗ trợ khôi phục trong khoảng thời gian đã được cấu hình và quá trình khôi phục phải được thực hiện đúng cách.
+Trước khi xóa DynamoDB tables hoặc Cognito User Pool, hãy chắc chắn rằng dữ liệu không còn cần thiết. PITR chỉ giúp khôi phục trong khoảng thời gian được cấu hình khi bảng còn tồn tại hoặc khi quy trình restore được thực hiện đúng cách.
 {{% /notice %}}
 
-### Kết luận
+#### Kết luận
 
-TaskManager là một ví dụ hoàn chỉnh về ứng dụng serverless trên AWS, bao gồm lưu trữ frontend tĩnh, xác thực được quản lý, GraphQL API, xử lý bằng Lambda, cơ sở dữ liệu DynamoDB và khả năng giám sát bằng CloudWatch.
+TaskManager là một ví dụ hoàn chỉnh về serverless application trên AWS: frontend tĩnh, authentication được quản lý, GraphQL API, compute bằng Lambda, database bằng DynamoDB và observability bằng CloudWatch.

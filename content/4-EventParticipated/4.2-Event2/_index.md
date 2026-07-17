@@ -305,3 +305,4 @@ When building AI-powered features, developers need to select suitable settings, 
 - Technical decisions should balance creativity with reliability.
 - Learning from the technology community helps expand knowledge and career perspectives.
 
+![alt text](f24d05d9-3730-4451-a152-d7313fc88c4a.jpg)
